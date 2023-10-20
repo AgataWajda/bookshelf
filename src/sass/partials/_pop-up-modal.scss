@@ -1,0 +1,64 @@
+.backdrop-modal {
+  position: fixed;
+  z-index: 23;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 17, 17, 0.4);
+  overflow: auto;
+  opacity: 1;
+  transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.modal {
+  position: absolute;
+  z-index: 22;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+.pop-up-modal {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  position: relative;
+  top: 430px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  width: 335px;
+  padding: 40px 24px;
+  border: 2px solid #ffffff;
+  border-radius: 18px;
+  background-color: #f6f6f6;
+  height: 806px;
+}
+
+.close-modal-btn {
+  position: absolute;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  top: 7px;
+  right: 7px;
+  border: none;
+  cursor: pointer;
+  transition: fill 0.3s ease;
+  background: #f6f6f6;
+  &:hover {
+    fill: #4f2ee8;
+  }
+}

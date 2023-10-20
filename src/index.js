@@ -1,2 +1,2 @@
 import './sass/main.scss';
-import './modal';
+import './pop-up-modal';

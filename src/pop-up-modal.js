@@ -1,3 +1,16 @@
+const popUpModal = document.querySelector('.pop-up-modal');
+const backdropModal = document.querySelector('.backdrop-modal');
+
+function openModalById() {
+  popUpModal.classList.remove('is-hidden');
+  backdropModal.classList.remove('is-hidden'); 
+}
+function closeModalById() {
+  popUpModal.classList.add('is-hidden');
+  backdropModal.classList.add('is-hidden');
+
+}
+
 (() => {
   const refs = {
     openModalBtn: document.querySelector("[data-modal-open]"),

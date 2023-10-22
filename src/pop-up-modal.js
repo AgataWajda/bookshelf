@@ -1,9 +1,13 @@
 const popUpModal = document.querySelector('.pop-up-modal');
 const backdropModal = document.querySelector('.backdrop-modal');
 const allBooks = document.querySelector('#allBooks');
+const closeButton = document.querySelector('#modal-close');
 //dodałam button, żeby sprawdzać jak wygląda modal//
 const btn = document.querySelector('button');
 btn.addEventListener('click', openPopUpModal);
+
+
+closeButton.addEventListener('click', closePopUpModal);
 
 let bookData = {};
 
@@ -28,6 +32,7 @@ async function createPopUpModal(bookId) {
 }
 async function fetchBookById(bookId) {
   try {
+    bookData = {};
     const response = await fetch(
       `https://books-backend.p.goit.global/books/${bookId}`
     );
@@ -46,6 +51,7 @@ async function fetchBookById(bookId) {
     throw error;
   }
 }
+
 function createMarkup(data) {
   const bookImage = data.book_image;
   const bookTitle = data.title;
@@ -85,6 +91,8 @@ function createMarkup(data) {
 </div>
   `;
 }
+
+
 // (() => {
 //   const refs = {
 //     openModalBtn: document.querySelector("[data-modal-open]"),

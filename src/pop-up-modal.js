@@ -3,14 +3,15 @@ const backdropModal = document.querySelector('.backdrop-modal');
 const allBooks = document.querySelector('#allBooks');
 const closeButton = document.querySelector('#modal-close');
 const addBookButton = document.querySelector('.add-book-button');
-const deleteBookButton = document.querySelector('.delete-book-button');
+const storageComment = document.querySelector('.storage-comment');
+const removeBookButton = document.querySelector('.remove-button');
+const LOCALSTORAGE_KEY = 'storage-book-data';
+let bookData = {};
+let bookArray = [];
+
 //dodałam button, żeby sprawdzać jak wygląda modal//
 const btn = document.querySelector('button');
 btn.addEventListener('click', openPopUpModal);
-
-closeButton.addEventListener('click', closePopUpModal);
-
-let bookData = {};
 
 function openPopUpModal() {
   popUpModal.classList.remove('is-hidden');
@@ -20,6 +21,7 @@ function closePopUpModal() {
   popUpModal.classList.add('is-hidden');
   backdropModal.classList.add('is-hidden');
 }
+closeButton.addEventListener('click', closePopUpModal);
 
 async function createPopUpModal(bookId) {
   allBooks.innerHTML = '';
@@ -43,6 +45,7 @@ async function fetchBookById(bookId) {
       description: data.description,
       marketAmazon: data.buy_links[0].url,
       marketAppleBooks: data.buy_links[1].url,
+      id: data._id,
     };
     return data;
   } catch (error) {
@@ -91,18 +94,35 @@ function createMarkup(data) {
   `;
 }
 
-// (() => {
-//   const refs = {
-//     openModalBtn: document.querySelector("[data-modal-open]"),
-//     closeModalBtn: document.querySelector("[data-modal-close]"),
-//     modal: document.querySelector("[data-modal]"),
-//   };
 
-//   refs.openModalBtn.addEventListener("click", toggleModal);
-//   refs.closeModalBtn.addEventListener("click", toggleModal);
+function onAddBook() {
+  const searchBookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+  const bookDataToSave = bookData;
+  if (searchBookArray || searchBookArray.length !== 0) {
+    addBookButton.style.display = 'block';
+    removeBookButton.style.display = 'none';
+    searchBookArray.push(bookDataToSave);
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(searchBookArray));
+    addBookButton.style.display = 'none';
+    removeBookButton.style.display = 'block';
+    storageComment.textContent =
+      'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
+  
+  }
+}
 
-//   function toggleModal() {
-//     refs.modal.classList.toggle("is-hidden");
-//   }
-// })();
-// catInfo.innerHTML = `<div class="box-img"><img src="${url}" alt="${breeds[0].name}" width="400"/></div><div class="box"><h1>${breeds[0].name}</h1><p>${breeds[0].description}</p><p><b>Temperament:</b> ${breeds[0].temperament}</p></div>`;
+function onRemoveBook() {
+  storageComment.textContent = '';
+
+  const bookToDelete = bookData.id;
+  const bookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+  const indexToDelete = bookArray.findIndex(book => book.id === bookToDelete);
+  bookArray.splice(indexToDelete, 1);
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookArray));
+ 
+  addBookButton.style.display = 'block';
+  removeBookButton.style.display = 'none';
+}
+
+addBookButton.addEventListener('click', onAddBook);
+removeBookButton.addEventListener('click', onRemoveBook);

@@ -52,6 +52,7 @@ async function fetchBookById(bookId) {
     console.error('Error', error);
     throw error;
   }
+
 }
 
 function createMarkup(data) {
@@ -126,3 +127,5 @@ function onRemoveBook() {
 
 addBookButton.addEventListener('click', onAddBook);
 removeBookButton.addEventListener('click', onRemoveBook);
+
+

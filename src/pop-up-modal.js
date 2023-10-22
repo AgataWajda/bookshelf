@@ -1,7 +1,7 @@
 const popUpModal = document.querySelector('.pop-up-modal');
 const backdropModal = document.querySelector('.backdrop-modal');
 const allBooks = document.querySelector('#allBooks');
-const closeButton = document.querySelector('#modal-close');
+const closeButton = document.querySelector('.close-modal-btn');
 const addBookButton = document.querySelector('.add-book-button');
 const storageComment = document.querySelector('.storage-comment');
 const removeBookButton = document.querySelector('.remove-button');
@@ -10,7 +10,7 @@ let bookData = {};
 let bookArray = [];
 
 //dodałam button, żeby sprawdzać jak wygląda modal//
-const btn = document.querySelector('button');
+const btn = document.querySelector('.pop-up-btn');
 btn.addEventListener('click', openPopUpModal);
 
 function openPopUpModal() {
@@ -21,7 +21,20 @@ function closePopUpModal() {
   popUpModal.classList.add('is-hidden');
   backdropModal.classList.add('is-hidden');
 }
+
 closeButton.addEventListener('click', closePopUpModal);
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    closePopUpModal();
+  }
+});
+
+backdropModal.addEventListener('click', function (event) {
+  if (event.target === backdropModal) {
+    closePopUpModal();
+  }
+});
 
 async function createPopUpModal(bookId) {
   allBooks.innerHTML = '';
@@ -62,8 +75,7 @@ function createMarkup(data) {
   const bookDescription = data.description;
   const marketAmazon = data.buy_links[0].url;
   const marketAppleBooks = data.buy_links[1].url;
-  allBooks.innerHTML = `  
-  <img src="${bookImage}" alt="Book Image" class="image">
+  allBooks.innerHTML = `<img src="${bookImage}" alt="Book Image" class="image">
   <div class="info-modal">
   <h2 class="title">${bookTitle}</h2>
   <p class="author"> ${bookAuthor}</p>
@@ -91,8 +103,7 @@ function createMarkup(data) {
     alt="AppleBooks"
   /></a></li>
 </ul>
-</div>
-  `;
+</div>`;
 }
 
 

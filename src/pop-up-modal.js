@@ -8,14 +8,13 @@ const deleteBookButton = document.querySelector('.delete-book-button');
 const btn = document.querySelector('button');
 btn.addEventListener('click', openPopUpModal);
 
-
 closeButton.addEventListener('click', closePopUpModal);
 
 let bookData = {};
 
 function openPopUpModal() {
   popUpModal.classList.remove('is-hidden');
-  backdropModal.classList.remove('is-hidden'); 
+  backdropModal.classList.remove('is-hidden');
 }
 function closePopUpModal() {
   popUpModal.classList.add('is-hidden');
@@ -35,9 +34,7 @@ async function createPopUpModal(bookId) {
 async function fetchBookById(bookId) {
   try {
     bookData = {};
-    const response = await fetch(
-      `https://books-backend.p.goit.global/books/${bookId}`
-    );
+    const response = await fetch(`https://books-backend.p.goit.global/books/${bookId}`);
     const data = await response.json();
     bookData = {
       book_image: data.book_image,
@@ -71,30 +68,28 @@ function createMarkup(data) {
     > <img
      width="62"
     height="19"
-  //   srcset="
-  //   ** 1x,
-  //   ** 2x
-  // "
-  //  src="**"
+    srcset="
+    ./images/pop-up-modal/iconAmazon@x1.png 1x,
+    ./images/pop-up-modal/iconAmazon@x2.png 2x
+  "
+   src="./images/pop-up-modal/iconAmazon@x1.png"
     alt="Amazon"
   /></a></li>
   <li class="buy-links-item"><a href="${marketAppleBooks}" target="_blank"
     > <img
     width="33"
     height="32"
-  //   srcset="
-  //   ** 1x,
-  //   ** 2x
-  // "
-  //  src="**"
+    srcset="
+    ./images/pop-up-modal/iconAppleBooks@x1.png 1x,
+    ./images/pop-up-modal/iconAppleBooks@x2.png 2x
+  "
+   src="./images/pop-up-modal/iconAppleBooks@x1.png"
     alt="AppleBooks"
   /></a></li>
 </ul>
 </div>
   `;
 }
-
-
 
 // (() => {
 //   const refs = {

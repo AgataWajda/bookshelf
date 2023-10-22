@@ -1,0 +1,91 @@
+<header class="header">
+  <menu class="header__menu">
+    <div class="logo">
+      <svg class="logo__icon"><use href="./images/icons.svg#icon-logo"></use></svg>
+      <svg class="logo__text"><use href="./images/icons.svg#icon-bookshelf"></use></svg>
+    </div>
+    <aside class="header__aside">
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider round"></span>
+      </label>
+      <button type="button" class="header__button-open">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+        >
+          <path
+            d="M19.8333 11.6667H3.5"
+            stroke="#111111"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M24.5 7H3.5"
+            stroke="#111111"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M24.5 16.3333H3.5"
+            stroke="#111111"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M19.8333 21H3.5"
+            stroke="#111111"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <button type="button" class="header__button-close is-hidden">
+        <svg width="28px" height="28px"><use href="./images/icons.svg#icon-close"></use></svg>
+      </button>
+    </aside>
+  </menu>
+
+  <section class="header-modal is-hidden">
+    <figure class="profile">
+      <img
+        class="profile__photo"
+        alt="Your profile photo"
+        src="./images/header-img/portrait@x1.jpg"
+        srcset="./images/header-img/portrait@x1.jpg 1x, ./images/header-img/portrait@x2.jpg 2x"
+      />
+      <figcaption class="profile__name">Stephen</figcaption>
+    </figure>
+    <nav class="header-modal__nav">
+      <button type="button" class="header-modal__home-btn">
+        <a href="#home" class="header-modal__home">HOME</a>
+      </button>
+      <a href="#shopping-list" class="header-modal__shop-link">
+        <span class="header-modal__shop-text">SHOPPING LIST</span>
+        <svg class="header-modal__shop-icon">
+          <use href="./images/icons.svg#icon-bag"></use>
+        </svg>
+      </a>
+
+      <button class="header-modal__logout" type="button">
+        <span>Log out</span>
+        <svg class="header-modal__logout-icon">
+          <use href="./images/icons.svg#icon-arrow-right"></use>
+        </svg>
+      </button>
+    </nav>
+    <img
+      class="header-modal__books-img"
+      alt="Dekoracyjne zdjęcie sześciu książek ustawionych pod kątem."
+      src="./images/header-img/books@1x.png"
+      srcset="./images/header-img/books@1x.png 1x, ./images/header-img/books@2x.png 2x"
+    />
+  </section>
+</header>

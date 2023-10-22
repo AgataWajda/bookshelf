@@ -3,5 +3,8 @@
  * Wszystkie partials podłączamy tutaj.
  */
 
-// Style dla pliku z przykładem HTML fragmentu
+
 @import './menu.scss';
+@import './partials/header.scss';
+@import './partials/pop-up-modal';
+

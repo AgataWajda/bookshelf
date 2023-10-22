@@ -10,14 +10,37 @@
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+  
     <link rel="stylesheet" href="./sass/main.scss" />
   </head>
+ 
+ 
+
   <body>
-    <!-- W taki sposbu dodajemy fragmenty w główny HTML-plik strony. -->
+    
+    <include src="./partials/header.html"></include>
     <include src="./partials/home.html"></include>
 
+
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="modal"
+      data-whatever="@mdo"
+    >
+      Open modal
+    </button>
+    <div class="backdrop-modal is-hidden">
+      <include src="./partials/pop-up-modal.html"></include>
+    </div>
     <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS plik. -->
 
     <script src="./index.js" type="module"></script>
+    <script src="./header-modal.js" type="module"></script>
   </body>
 </html>

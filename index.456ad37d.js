@@ -1,2 +1,0 @@
-const e=document.querySelector(".header__button-open"),d=document.querySelector(".header__button-close"),s=document.querySelector(".header-modal");e.addEventListener("click",(()=>{s.classList.remove("is-hidden"),e.classList.add("is-hidden"),d.classList.remove("is-hidden")})),d.addEventListener("click",(()=>{s.classList.add("is-hidden"),d.classList.add("is-hidden"),e.classList.remove("is-hidden")}));
-//# sourceMappingURL=index.456ad37d.js.map

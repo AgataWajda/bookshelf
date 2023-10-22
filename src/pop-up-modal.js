@@ -1,20 +1,27 @@
 const popUpModal = document.querySelector('.pop-up-modal');
 const backdropModal = document.querySelector('.backdrop-modal');
 const allBooks = document.querySelector('#allBooks');
+const closeButton = document.querySelector('#modal-close');
+const addBookButton = document.querySelector('.add-book-button');
+const storageComment = document.querySelector('.storage-comment');
+const removeBookButton = document.querySelector('.remove-button');
+const LOCALSTORAGE_KEY = 'storage-book-data';
+let bookData = {};
+let bookArray = [];
+
 //dodałam button, żeby sprawdzać jak wygląda modal//
 const btn = document.querySelector('button');
 btn.addEventListener('click', openPopUpModal);
 
-let bookData = {};
-
 function openPopUpModal() {
   popUpModal.classList.remove('is-hidden');
-  backdropModal.classList.remove('is-hidden'); 
+  backdropModal.classList.remove('is-hidden');
 }
 function closePopUpModal() {
   popUpModal.classList.add('is-hidden');
   backdropModal.classList.add('is-hidden');
 }
+closeButton.addEventListener('click', closePopUpModal);
 
 async function createPopUpModal(bookId) {
   allBooks.innerHTML = '';
@@ -28,9 +35,8 @@ async function createPopUpModal(bookId) {
 }
 async function fetchBookById(bookId) {
   try {
-    const response = await fetch(
-      `https://books-backend.p.goit.global/books/${bookId}`
-    );
+    bookData = {};
+    const response = await fetch(`https://books-backend.p.goit.global/books/${bookId}`);
     const data = await response.json();
     bookData = {
       book_image: data.book_image,
@@ -39,6 +45,7 @@ async function fetchBookById(bookId) {
       description: data.description,
       marketAmazon: data.buy_links[0].url,
       marketAppleBooks: data.buy_links[1].url,
+      id: data._id,
     };
     return data;
   } catch (error) {
@@ -46,6 +53,7 @@ async function fetchBookById(bookId) {
     throw error;
   }
 }
+
 function createMarkup(data) {
   const bookImage = data.book_image;
   const bookTitle = data.title;
@@ -63,40 +71,58 @@ function createMarkup(data) {
     > <img
      width="62"
     height="19"
-  //   srcset="
-  //   ** 1x,
-  //   ** 2x
-  // "
-  //  src="**"
+    srcset="
+    ./images/pop-up-modal/iconAmazon@x1.png 1x,
+    ./images/pop-up-modal/iconAmazon@x2.png 2x
+  "
+   src="./images/pop-up-modal/iconAmazon@x1.png"
     alt="Amazon"
   /></a></li>
   <li class="buy-links-item"><a href="${marketAppleBooks}" target="_blank"
     > <img
     width="33"
     height="32"
-  //   srcset="
-  //   ** 1x,
-  //   ** 2x
-  // "
-  //  src="**"
+    srcset="
+    ./images/pop-up-modal/iconAppleBooks@x1.png 1x,
+    ./images/pop-up-modal/iconAppleBooks@x2.png 2x
+  "
+   src="./images/pop-up-modal/iconAppleBooks@x1.png"
     alt="AppleBooks"
   /></a></li>
 </ul>
 </div>
   `;
 }
-// (() => {
-//   const refs = {
-//     openModalBtn: document.querySelector("[data-modal-open]"),
-//     closeModalBtn: document.querySelector("[data-modal-close]"),
-//     modal: document.querySelector("[data-modal]"),
-//   };
 
-//   refs.openModalBtn.addEventListener("click", toggleModal);
-//   refs.closeModalBtn.addEventListener("click", toggleModal);
 
-//   function toggleModal() {
-//     refs.modal.classList.toggle("is-hidden");
-//   }
-// })();
-// catInfo.innerHTML = `<div class="box-img"><img src="${url}" alt="${breeds[0].name}" width="400"/></div><div class="box"><h1>${breeds[0].name}</h1><p>${breeds[0].description}</p><p><b>Temperament:</b> ${breeds[0].temperament}</p></div>`;
+function onAddBook() {
+  const searchBookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+  const bookDataToSave = bookData;
+  if (searchBookArray || searchBookArray.length !== 0) {
+    addBookButton.style.display = 'block';
+    removeBookButton.style.display = 'none';
+    searchBookArray.push(bookDataToSave);
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(searchBookArray));
+    addBookButton.style.display = 'none';
+    removeBookButton.style.display = 'block';
+    storageComment.textContent =
+      'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
+  
+  }
+}
+
+function onRemoveBook() {
+  storageComment.textContent = '';
+
+  const bookToDelete = bookData.id;
+  const bookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+  const indexToDelete = bookArray.findIndex(book => book.id === bookToDelete);
+  bookArray.splice(indexToDelete, 1);
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookArray));
+ 
+  addBookButton.style.display = 'block';
+  removeBookButton.style.display = 'none';
+}
+
+addBookButton.addEventListener('click', onAddBook);
+removeBookButton.addEventListener('click', onRemoveBook);

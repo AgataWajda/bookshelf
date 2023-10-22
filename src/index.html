@@ -13,8 +13,19 @@
   </head>
   <body>
     <!-- W taki sposbu dodajemy fragmenty w główny HTML-plik strony. -->
-    <include src="./partials/example.html"></include>
-
+    <!-- <include src="./partials/example.html"></include> -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="modal"
+      data-whatever="@mdo"
+    >
+      Open modal
+    </button>
+    <div class="backdrop-modal is-hidden">
+      <include src="./partials/pop-up-modal.html"></include>
+    </div>
     <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS plik. -->
     <script src="./index.js" type="module"></script>
   </body>

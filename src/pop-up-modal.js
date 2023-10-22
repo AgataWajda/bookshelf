@@ -2,6 +2,8 @@ const popUpModal = document.querySelector('.pop-up-modal');
 const backdropModal = document.querySelector('.backdrop-modal');
 const allBooks = document.querySelector('#allBooks');
 const closeButton = document.querySelector('#modal-close');
+const addBookButton = document.querySelector('.add-book-button');
+const deleteBookButton = document.querySelector('.delete-book-button');
 //dodałam button, żeby sprawdzać jak wygląda modal//
 const btn = document.querySelector('button');
 btn.addEventListener('click', openPopUpModal);
@@ -91,6 +93,7 @@ function createMarkup(data) {
 </div>
   `;
 }
+
 
 
 // (() => {

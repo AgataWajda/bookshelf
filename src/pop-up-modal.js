@@ -1,7 +1,7 @@
 const popUpModal = document.querySelector('.pop-up-modal');
 const backdropModal = document.querySelector('.backdrop-modal');
 const allBooks = document.querySelector('#allBooks');
-const closeButton = document.querySelector('.close-modal-btn');
+const closeButton = document.querySelector('.close-pop-up-modal-btn');
 const addBookButton = document.querySelector('.add-book-button');
 const storageComment = document.querySelector('.storage-comment');
 const removeBookButton = document.querySelector('.remove-button');
@@ -22,7 +22,7 @@ function closePopUpModal() {
   backdropModal.classList.add('is-hidden');
 }
 
-closeButton.addEventListener('click', closePopUpModal);
+
 
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') {
@@ -35,6 +35,8 @@ backdropModal.addEventListener('click', function (event) {
     closePopUpModal();
   }
 });
+
+closeButton.addEventListener('click', closePopUpModal);
 
 async function createPopUpModal(bookId) {
   allBooks.innerHTML = '';

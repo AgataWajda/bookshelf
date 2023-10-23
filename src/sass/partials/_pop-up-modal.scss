@@ -44,10 +44,10 @@
   border: 2px solid #040404;
   border-radius: 18px;
   background-color: #f6f6f6;
-  height: 806px;
+  height: 100%;
 }
 
-.close-modal-btn {
+.close-pop-up-modal-btn {
   position: absolute;
   padding: 0;
   width: 28px;
@@ -59,7 +59,7 @@
   transition: fill 0.3s ease;
   background: #f6f6f6;
   &:hover {
-    fill: #4f2ee8;
+    color: #836ceb;
   }
 }
 .image {
@@ -152,7 +152,7 @@
     height: 500px;
     width: 579px;
   }
-  .close-modal-btn {
+  .close-pop-up-modal-btn {
     width: 28px;
     height: 28px;
     top: 24px;

@@ -37,7 +37,7 @@
 
   border-radius: 18px;
 }
-.close-modal-btn {
+.close-start-modal-btn {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -143,9 +143,14 @@
     max-width: 579px;
     max-height: 516px;
   }
-  .close-modal-btn {
+  .close-start-modal-btn {
     width: 28px;
     height: 28px;
+    left: 90%;
+    & svg {
+      width: 28px;
+      height: 28px;
+    }
   }
   .modal-input {
     width: 499px;
@@ -165,12 +170,5 @@
   }
   .main-modal-btn {
     width: 100%;
-  }
-  .close-modal-btn {
-    left: 90%;
-    & svg {
-      width: 28px;
-      height: 28px;
-    }
   }
 }

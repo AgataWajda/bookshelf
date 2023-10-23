@@ -1,58 +1,65 @@
 <div class="modal is-hidden start-modal">
   <button id="modal-close" class="close-modal-btn" type="button" aria-label="close">
     <svg class="close-modal-btn">
-      <use href="./images/icons.svg#icon-close"></use>
+      xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path
+        d="M15 5L5 15M5 5L15 15"
+        stroke="#F6F6F6"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
     </svg>
   </button>
 
   <form class="register-form" id="formId">
     <label class="modal-label" for="nameId">
-      <input class="modal-input" type="text" placeholder="Name" id="nameId" required />
+      <input class="modal-input" type="text" placeholder="NAME" id="nameId" required />
     </label>
     <label class="modal-label" for="emailId">
       <svg
         class="modal-icon"
         xmlns="http://www.w3.org/2000/svg"
-        width="28"
-        height="28"
-        viewBox="0 0 28 28"
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
         fill="none"
       >
         <path
-          d="M25.0835 21L17.3335 14M10.6668 14L2.91687 21M2.3335 8.16669L11.8592 14.8347C12.6306 15.3747 13.0163 15.6446 13.4358 15.7492C13.8064 15.8416 14.194 15.8416 14.5645 15.7492C14.984 15.6446 15.3697 15.3747 16.1411 14.8347L25.6668 8.16669M7.9335 23.3334H20.0668C22.027 23.3334 23.0071 23.3334 23.7558 22.9519C24.4144 22.6163 24.9498 22.0809 25.2854 21.4223C25.6668 20.6736 25.6668 19.6935 25.6668 17.7334V10.2667C25.6668 8.3065 25.6668 7.32641 25.2854 6.57772C24.9498 5.91915 24.4144 5.38372 23.7558 5.04816C23.0071 4.66669 22.027 4.66669 20.0668 4.66669H7.9335C5.97331 4.66669 4.99322 4.66669 4.24453 5.04816C3.58596 5.38372 3.05053 5.91915 2.71497 6.57772C2.3335 7.32641 2.3335 8.3065 2.3335 10.2667V17.7334C2.3335 19.6935 2.3335 20.6736 2.71497 21.4223C3.05053 22.0809 3.58596 22.6163 4.24453 22.9519C4.99322 23.3334 5.97331 23.3334 7.9335 23.3334Z"
-          stroke="#111111"
-          stroke-width="2"
+          d="M16.125 13.5L11.1429 9M6.85714 9L1.87503 13.5M1.5 5.25L7.62369 9.53658C8.11957 9.8837 8.36751 10.0573 8.6372 10.1245C8.87542 10.1839 9.12458 10.1839 9.3628 10.1245C9.63249 10.0573 9.88043 9.8837 10.3763 9.53658L16.5 5.25M5.1 15H12.9C14.1601 15 14.7902 15 15.2715 14.7548C15.6948 14.539 16.0391 14.1948 16.2548 13.7715C16.5 13.2902 16.5 12.6601 16.5 11.4V6.6C16.5 5.33988 16.5 4.70982 16.2548 4.22852C16.0391 3.80516 15.6948 3.46095 15.2715 3.24524C14.7902 3 14.1601 3 12.9 3H5.1C3.83988 3 3.20982 3 2.72852 3.24524C2.30516 3.46095 1.96095 3.80516 1.74524 4.22852C1.5 4.70982 1.5 5.33988 1.5 6.6V11.4C1.5 12.6601 1.5 13.2902 1.74524 13.7715C1.96095 14.1948 2.30516 14.539 2.72852 14.7548C3.20982 15 3.83988 15 5.1 15Z"
+          stroke="#F6F6F6"
+          stroke-width="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
       </svg>
 
-      <input class="modal-input" type="email" placeholder="Email" id="emailId" required />
+      <input class="modal-input" type="email" placeholder="EMAIL" id="emailId" required />
     </label>
     <label class="modal-label" for="passwordId">
       <svg
         class="modal-icon"
         xmlns="http://www.w3.org/2000/svg"
-        width="28"
-        height="28"
-        viewBox="0 0 28 28"
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
         fill="none"
       >
         <path
-          d="M19.8333 12.8333V9.33333C19.8333 6.11167 17.2217 3.5 14 3.5C10.7783 3.5 8.16667 6.11167 8.16667 9.33333V12.8333M9.1 24.5H18.9C20.8602 24.5 21.8403 24.5 22.589 24.1185C23.2475 23.783 23.783 23.2475 24.1185 22.589C24.5 21.8403 24.5 20.8602 24.5 18.9V18.4333C24.5 16.4731 24.5 15.4931 24.1185 14.7444C23.783 14.0858 23.2475 13.5504 22.589 13.2148C21.8403 12.8333 20.8602 12.8333 18.9 12.8333H9.1C7.13982 12.8333 6.15972 12.8333 5.41103 13.2148C4.75247 13.5504 4.21703 14.0858 3.88148 14.7444C3.5 15.4931 3.5 16.4731 3.5 18.4333V18.9C3.5 20.8602 3.5 21.8403 3.88148 22.589C4.21703 23.2475 4.75247 23.783 5.41103 24.1185C6.15972 24.5 7.13982 24.5 9.1 24.5Z"
-          stroke="#111111"
-          stroke-width="2"
+          d="M12.75 8.25V6C12.75 3.92893 11.0711 2.25 9 2.25C6.92893 2.25 5.25 3.92893 5.25 6V8.25M5.85 15.75H12.15C13.4101 15.75 14.0402 15.75 14.5215 15.5048C14.9448 15.289 15.289 14.9448 15.5048 14.5215C15.75 14.0402 15.75 13.4101 15.75 12.15V11.85C15.75 10.5899 15.75 9.95982 15.5048 9.47852C15.289 9.05516 14.9448 8.71095 14.5215 8.49524C14.0402 8.25 13.4101 8.25 12.15 8.25H5.85C4.58988 8.25 3.95982 8.25 3.47852 8.49524C3.05516 8.71095 2.71095 9.05516 2.49524 9.47852C2.25 9.95982 2.25 10.5899 2.25 11.85V12.15C2.25 13.4101 2.25 14.0402 2.49524 14.5215C2.71095 14.9448 3.05516 15.289 3.47852 15.5048C3.95982 15.75 4.58988 15.75 5.85 15.75Z"
+          stroke="#F6F6F6"
+          stroke-width="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
       </svg>
 
-      <input class="modal-input" type="password" placeholder="Password" id="passwordId" required />
+      <input class="modal-input" type="password" placeholder="PASSWORD" id="passwordId" required />
     </label>
-    <button class="main-modal-btn" type="submit">Sign Up</button>
+    <button class="main-modal-btn" type="submit">SIGN UP</button>
   </form>
   <div class="common-modalBtn-field">
-    <button class="common-modal-btn current-modal-btn">Sign Up</button>
-    <button class="common-modal-btn">Sign In</button>
+    <button class="common-modal-btn current-modal-btn">SIGN UP</button>
+    <button class="common-modal-btn">SIGN IN</button>
   </div>
 </div>

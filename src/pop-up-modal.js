@@ -106,7 +106,6 @@ function createMarkup(data) {
 </div>`;
 }
 
-
 function onAddBook() {
   const searchBookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
   const bookDataToSave = bookData;
@@ -119,7 +118,6 @@ function onAddBook() {
     removeBookButton.style.display = 'block';
     storageComment.textContent =
       'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
-  
   }
 }
 
@@ -131,7 +129,7 @@ function onRemoveBook() {
   const indexToDelete = bookArray.findIndex(book => book.id === bookToDelete);
   bookArray.splice(indexToDelete, 1);
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookArray));
- 
+
   addBookButton.style.display = 'block';
   removeBookButton.style.display = 'none';
 }

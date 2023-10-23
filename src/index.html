@@ -20,15 +20,17 @@
 
   <body>
     <include src="./partials/header.html"></include>
+    <include src="./partials/home.html"></include>
 
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="modal"
-      data-whatever="@mdo"
-    >
-      Open modal
+    <button type="button" class="start-btn" data-toggle="modal" data-target="modal">
+      Open start - modal
+    </button>
+    <div class="backdrop is-hidden">
+      <include src="./partials/start-modal.html"></include>
+    </div>
+
+    <button type="button" class="pop-up-btn" data-toggle="modal" data-target="modal">
+      Open pop-up modal
     </button>
     <div class="backdrop-modal is-hidden">
       <include src="./partials/pop-up-modal.html"></include>

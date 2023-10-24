@@ -14,26 +14,23 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
       rel="stylesheet"
     />
-  
+
     <link rel="stylesheet" href="./sass/main.scss" />
   </head>
- 
- 
 
   <body>
-    
     <include src="./partials/header.html"></include>
     <include src="./partials/home.html"></include>
 
+    <button type="button" class="start-btn" data-toggle="modal" data-target="modal">
+      Open start - modal
+    </button>
+    <div class="backdrop is-hidden">
+      <include src="./partials/start-modal.html"></include>
+    </div>
 
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="modal"
-      data-whatever="@mdo"
-    >
-      Open modal
+    <button type="button" class="pop-up-btn" data-toggle="modal" data-target="modal">
+      Open pop-up modal
     </button>
     <div class="backdrop-modal is-hidden">
       <include src="./partials/pop-up-modal.html"></include>

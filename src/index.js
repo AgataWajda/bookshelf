@@ -1,5 +1,6 @@
 import './sass/main.scss';
 import './pop-up-modal';
+import './start-modal';
 import './js/categories-menu';
 import { fetchBooksByCategory, fetchBooksCategoryList, Bookshelf } from './js/bookshelf-api';
 
@@ -53,3 +54,4 @@ async function booksCategoryList() {
 }
 
 booksCategoryList();
+

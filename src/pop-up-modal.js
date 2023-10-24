@@ -1,7 +1,7 @@
 const popUpModal = document.querySelector('.pop-up-modal');
 const backdropModal = document.querySelector('.backdrop-modal');
 const allBooks = document.querySelector('#allBooks');
-const closeButton = document.querySelector('#modal-close');
+const closeButton = document.querySelector('.close-pop-up-modal-btn');
 const addBookButton = document.querySelector('.add-book-button');
 const storageComment = document.querySelector('.storage-comment');
 const removeBookButton = document.querySelector('.remove-button');
@@ -10,7 +10,7 @@ let bookData = {};
 let bookArray = [];
 
 //dodałam button, żeby sprawdzać jak wygląda modal//
-const btn = document.querySelector('.btn');
+const btn = document.querySelector('.pop-up-btn');
 btn.addEventListener('click', openPopUpModal);
 
 function openPopUpModal() {
@@ -21,6 +21,21 @@ function closePopUpModal() {
   popUpModal.classList.add('is-hidden');
   backdropModal.classList.add('is-hidden');
 }
+
+
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    closePopUpModal();
+  }
+});
+
+backdropModal.addEventListener('click', function (event) {
+  if (event.target === backdropModal) {
+    closePopUpModal();
+  }
+});
+
 closeButton.addEventListener('click', closePopUpModal);
 
 async function createPopUpModal(bookId) {
@@ -52,6 +67,7 @@ async function fetchBookById(bookId) {
     console.error('Error', error);
     throw error;
   }
+
 }
 
 function createMarkup(data) {
@@ -61,8 +77,7 @@ function createMarkup(data) {
   const bookDescription = data.description;
   const marketAmazon = data.buy_links[0].url;
   const marketAppleBooks = data.buy_links[1].url;
-  allBooks.innerHTML = `  
-  <img src="${bookImage}" alt="Book Image" class="image">
+  allBooks.innerHTML = `<img src="${bookImage}" alt="Book Image" class="image">
   <div class="info-modal">
   <h2 class="title">${bookTitle}</h2>
   <p class="author"> ${bookAuthor}</p>
@@ -90,8 +105,7 @@ function createMarkup(data) {
     alt="AppleBooks"
   /></a></li>
 </ul>
-</div>
-  `;
+</div>`;
 }
 
 function onAddBook() {
@@ -124,3 +138,5 @@ function onRemoveBook() {
 
 addBookButton.addEventListener('click', onAddBook);
 removeBookButton.addEventListener('click', onRemoveBook);
+
+

@@ -3,8 +3,9 @@
  * Wszystkie partials podłączamy tutaj.
  */
 
-
 @import './menu.scss';
 @import './partials/header.scss';
 @import './partials/pop-up-modal';
-
+@import './partials/fonts';
+@import './partials/buttons';
+@import './partials/variables';

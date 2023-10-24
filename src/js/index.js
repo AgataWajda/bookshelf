@@ -1,4 +1,3 @@
-import '../sass/main.scss';
 import './pop-up-modal';
 import './categories-menu';
 import { fetchBooksByCategory, fetchBooksCategoryList } from './bookshelf-api';

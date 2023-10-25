@@ -147,6 +147,7 @@ input:checked + .slider:before {
   width: 100vw;
   height: 100vh;
   background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4f2ee8 18.03%, #fff 100%);
+  font-family: 'DM Sans', sans-serif;
 
   &__books-img {
     width: calc((450px / 375px) * 100%);
@@ -163,6 +164,7 @@ input:checked + .slider:before {
   flex-direction: column;
   gap: 14px;
   margin-left: calc((119px / 375px) * 100%);
+  font-family: 'DM Sans', sans-serif;
 
   @include tablet {
     flex-direction: row;
@@ -255,6 +257,7 @@ input:checked + .slider:before {
   display: flex;
   gap: 9px;
   align-items: center;
+  font-family: 'DM Sans', sans-serif;
 
   @include tablet {
     background-color: #4f2ee8;

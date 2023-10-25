@@ -1,5 +1,6 @@
 import './pop-up-modal';
 import './categories-menu';
+import './charities';
 import { fetchBooksByCategory, fetchBooksCategoryList } from './bookshelf-api';
 
 async function booksByCategory(selectedCategory) {

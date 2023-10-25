@@ -14,8 +14,6 @@ export default class BookshelfApi {
   }
 }
 
-
-
 // Constant URL value for API
 const BASE_API_URL = 'https://books-backend.p.goit.global/books';
 
@@ -35,12 +33,12 @@ export async function fetchBooksCategoryList() {
   try {
     const response = await fetch(`${BASE_API_URL}/${CATEGORY_LIST}`);
     if (!response.ok) {
-      throw new Error("Network response was not OK");
+      throw new Error('Network response was not OK');
     }
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("There has been a problem with your fetch operation:", error);
+    console.error('There has been a problem with your fetch operation:', error);
   }
 }
 
@@ -57,7 +55,7 @@ export async function fetchBooksByCategory(selectedCategory) {
     timeoutID = setTimeout(() => controlller.abort(), 2000);
 
     const response = await fetch(`${BASE_API_URL}/category?category=${selectedCategory}`, {
-      signal
+      signal,
     });
     clearTimeout(timeoutID);
     // ok - shorthand for checking that the status is in the range 2xx (boolean)
@@ -67,36 +65,32 @@ export async function fetchBooksByCategory(selectedCategory) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("There has been a problem with your fetch operation:", error.message);
+    console.error('There has been a problem with your fetch operation:', error.message);
   }
 }
 
 export class Bookshelf {
-  
   controller = new AbortController();
   signal = this.controller.signal;
 
   Data = {
-   byCategoryAll:[],
-   byCategory:[]
-  }
-  
-  
+    byCategoryAll: [],
+    byCategory: [],
+  };
+
   // async getByCategory(selectedCategory) {
   //      this.Data.byCategory =  await this.fetchByCategory(selectedCategory);
-         
-  //     //  console.log('arrBooks: ', this.Data.byCategory);   
+
+  //     //  console.log('arrBooks: ', this.Data.byCategory);
   //      return this.Data.byCategory;
   // }
 
-
   async fetchByCategory(selectedCategory) {
     try {
-      
       // const timeoutID = setTimeout(() => this.controller.abort() , 2000);
-  
+
       const response = await fetch(`${BASE_API_URL}/category?category=${selectedCategory}`, {
-        signal: this.signal
+        signal: this.signal,
       });
       // clearTimeout(timeoutID);
       // ok - shorthand for checking that the status is in the range 2xx (boolean)
@@ -108,8 +102,7 @@ export class Bookshelf {
       // console.log(data);
       return data;
     } catch (error) {
-      console.error("There has been a problem with your fetch operation:", error.message);
+      console.error('There has been a problem with your fetch operation:', error.message);
     }
   }
 }
-

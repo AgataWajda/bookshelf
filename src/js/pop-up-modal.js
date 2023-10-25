@@ -6,8 +6,11 @@ const addBookButton = document.querySelector('.add-book-button');
 const storageComment = document.querySelector('.storage-comment');
 const removeBookButton = document.querySelector('.remove-button');
 const LOCALSTORAGE_KEY = 'storage-book-data';
+
 let bookData = {};
 let bookArray = [];
+
+
 
 //dodałam button, żeby sprawdzać jak wygląda modal//
 const btn = document.querySelector('.pop-up-btn');
@@ -21,8 +24,6 @@ function closePopUpModal() {
   popUpModal.classList.add('is-hidden');
   backdropModal.classList.add('is-hidden');
 }
-
-
 
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') {
@@ -38,10 +39,12 @@ backdropModal.addEventListener('click', function (event) {
 
 closeButton.addEventListener('click', closePopUpModal);
 
+
 async function createPopUpModal(bookId) {
   allBooks.innerHTML = '';
   try {
     const data = await fetchBookById(bookId);
+    createMarkup(data);
     return data;
   } catch (error) {
     console.error('Error', error);
@@ -60,6 +63,7 @@ async function fetchBookById(bookId) {
       description: data.description,
       marketAmazon: data.buy_links[0].url,
       marketAppleBooks: data.buy_links[1].url,
+      list_name: data.list_name,
       id: data._id,
     };
     return data;
@@ -77,7 +81,7 @@ function createMarkup(data) {
   const bookDescription = data.description;
   const marketAmazon = data.buy_links[0].url;
   const marketAppleBooks = data.buy_links[1].url;
-  allBooks.innerHTML = `<img src="${bookImage}" alt="Book Image" class="image">
+  const bookCard = `<img src="${bookImage}" alt="Book Image" class="image">
   <div class="info-modal">
   <h2 class="title">${bookTitle}</h2>
   <p class="author"> ${bookAuthor}</p>
@@ -106,6 +110,7 @@ function createMarkup(data) {
   /></a></li>
 </ul>
 </div>`;
+  allBooks.innerHTML = bookCard;
 }
 
 function onAddBook() {

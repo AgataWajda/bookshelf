@@ -37,18 +37,9 @@ export class Bookshelf {
     // console.log('response: ', response);
     return response;
   }
-const CATEGORY_LIST = 'category-list';
 
-// Object with  authorization headers and Content-Type header
-// const API_REQUEST_HEADERS = {
-//   'Content-Type': 'application/json',
-// };
-//
-// // const config = {
-//    maxBodyLength: Infinity,
-//    headers: API_REQUEST_HEADERS
-// };
 
+/
 export async function fetchBooksCategoryList() {
   try {
     const response = await fetch(`${BASE_API_URL}/${CATEGORY_LIST}`);

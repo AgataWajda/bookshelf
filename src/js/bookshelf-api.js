@@ -38,21 +38,6 @@ export class Bookshelf {
     return response;
   }
 
-
-/
-export async function fetchBooksCategoryList() {
-  try {
-    const response = await fetch(`${BASE_API_URL}/${CATEGORY_LIST}`);
-    if (!response.ok) {
-      throw new Error('Network response was not OK');
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('There has been a problem with your fetch operation:', error);
-  }
-}
-
 /**
  * Category name to get a list of books in this category.
  * Will receive a collection of 20 books of a certain category
@@ -73,27 +58,6 @@ export async function fetchBooksCategoryList() {
       console.error("There has been a problem with your fetch operation:", error.message);
     }
   }
-
-export async function fetchBooksByCategory(selectedCategory) {
-  try {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    timeoutID = setTimeout(() => controlller.abort(), 2000);
-
-    const response = await fetch(`${BASE_API_URL}/category?category=${selectedCategory}`, {
-      signal,
-    });
-    clearTimeout(timeoutID);
-    // ok - shorthand for checking that the status is in the range 2xx (boolean)
-    if (!response.ok) {
-      throw new Error(`Network response was not OK - HTTP error: ${response.status}`);
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('There has been a problem with your fetch operation:', error.message);
-  }
-}
 
 // returns a list of categories
   async fetchBooksCategoryList() {
@@ -134,28 +98,6 @@ export async function fetchBooksByCategory(selectedCategory) {
     try {
       const response = await this.fetchWithTimeout(`${BASE_API_URL}/${id}`, {
         timeout: 6000
-export class Bookshelf {
-  controller = new AbortController();
-  signal = this.controller.signal;
-
-  Data = {
-    byCategoryAll: [],
-    byCategory: [],
-  };
-
-  // async getByCategory(selectedCategory) {
-  //      this.Data.byCategory =  await this.fetchByCategory(selectedCategory);
-
-  //     //  console.log('arrBooks: ', this.Data.byCategory);
-  //      return this.Data.byCategory;
-  // }
-
-  async fetchByCategory(selectedCategory) {
-    try {
-      // const timeoutID = setTimeout(() => this.controller.abort() , 2000);
-
-      const response = await fetch(`${BASE_API_URL}/category?category=${selectedCategory}`, {
-        signal: this.signal,
       });
       // ok - shorthand for checking that the status is in the range 2xx (boolean)
       if (!response.ok) {
@@ -164,7 +106,7 @@ export class Bookshelf {
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error('There has been a problem with your fetch operation:', error.message);
+      console.error("There has been a problem with your fetch operation:", error.message);
     }
   }
 }

@@ -1,7 +1,7 @@
 import './pop-up-modal';
 import './categories-menu';
 import './charities';
-import { Bookshelf } from './js/bookshelf-api';
+import { Bookshelf } from './bookshelf-api';
 
 const my_Bookshelf = new Bookshelf();
 my_Bookshelf.fetchByCategory('Business Books').then(data => {

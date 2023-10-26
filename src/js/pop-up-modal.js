@@ -1,3 +1,5 @@
+// import { fetchById } from './bookshelf-api';
+
 const popUpModal = document.querySelector('.pop-up-modal');
 const backdropModal = document.querySelector('.backdrop-modal');
 const allBooks = document.querySelector('#allBooks');
@@ -14,7 +16,7 @@ function openPopUpModal() {
   popUpModal.classList.remove('is-hidden');
   backdropModal.classList.remove('is-hidden');
 }
-//dodałam button, żeby sprawdzać jak wygląda modal//
+// dodałam button, żeby sprawdzać jak wygląda modal//
 const btn = document.querySelector('.pop-up-btn');
 btn.addEventListener('click', openPopUpModal);
 
@@ -37,6 +39,7 @@ backdropModal.addEventListener('click', function (event) {
 
 closeButton.addEventListener('click', closePopUpModal);
 
+
 async function createPopUpModal(bookId) {
   allBooks.innerHTML = '';
   try {
@@ -48,27 +51,27 @@ async function createPopUpModal(bookId) {
     throw error;
   }
 }
-async function fetchBookById(bookId) {
-  try {
-    bookData = {};
-    const response = await fetch(`https://books-backend.p.goit.global/books/${bookId}`);
-    const data = await response.json();
-    bookData = {
-      book_image: data.book_image,
-      title: data.title,
-      author: data.author,
-      description: data.description,
-      marketAmazon: data.buy_links[0].url,
-      marketAppleBooks: data.buy_links[1].url,
-      list_name: data.list_name,
-      id: data._id,
-    };
-    return data;
-  } catch (error) {
-    console.error('Error', error);
-    throw error;
-  }
-}
+// async function fetchBookById(bookId) {
+//   try {
+//     bookData = {};
+//     const response = await fetch(`https://books-backend.p.goit.global/books/${bookId}`);
+//     const data = await response.json();
+//     bookData = {
+//       book_image: data.book_image,
+//       title: data.title,
+//       author: data.author,
+//       description: data.description,
+//       marketAmazon: data.buy_links[0].url,
+//       marketAppleBooks: data.buy_links[1].url,
+//       list_name: data.list_name,
+//       id: data._id,
+//     };
+//     return data;
+//   } catch (error) {
+//     console.error('Error', error);
+//     throw error;
+//   }
+// }
 
 function createMarkup(data) {
   const bookImage = data.book_image;

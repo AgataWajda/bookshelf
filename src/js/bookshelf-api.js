@@ -94,7 +94,7 @@ export class Bookshelf {
 } 
 
 // will receive complete information about the book 
-  async  fetchById(id) {
+  async fetchById(id) {
     try {
       const response = await this.fetchWithTimeout(`${BASE_API_URL}/${id}`, {
         timeout: 6000
@@ -110,3 +110,5 @@ export class Bookshelf {
     }
   }
 }
+
+export { fetchById };

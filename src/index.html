@@ -22,8 +22,16 @@
   <body>
     <include src="./partials/header.html"></include>
 
-    <include src="./partials/home.html"></include>
-    <include src="./partials/charities.html"></include>
+    <div class="container body-wrapper">
+      <aside class="left-side">
+        <include src="./partials/categories-menu.html"></include>
+        <include src="./partials/charities.html"></include>
+      </aside>
+      <div class="right-side">
+        <include src="./partials/best-sellers-books.html"></include>
+        <include src="./partials/category-books.html"></include>
+      </div>
+    </div>
 
     <button type="button" class="start-btn" data-toggle="modal" data-target="modal">
       Open start - modal

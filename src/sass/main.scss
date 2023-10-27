@@ -3,9 +3,11 @@
  * Wszystkie partials podłączamy tutaj.
  */
 
-@import './partials/menu';
+@import './partials/categories-menu';
+@import './partials/main-page';
 @import './partials/right-side';
 @import './partials/left-side';
+@import './partials/category-books.scss';
 @import './partials/header.scss';
 @import './partials/pop-up-modal';
 @import './partials/fonts';

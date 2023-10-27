@@ -1,53 +1,59 @@
-import BookshelfApi from './bookshelf-api';
-import 'simplebar';
-import 'simplebar/dist/simplebar.css';
+import { Bookshelf } from './bookshelf-api.js';
 
-import ResizeObserver from 'resize-observer-polyfill';
-window.ResizeObserver = ResizeObserver;
-
-const api = new BookshelfApi();
-
+const bookshelfApi = new Bookshelf();
 const categoriesListEl = document.querySelector('.categories-list');
 
-export let categoriesMenu = renderCategoriesMenu();
+categoriesListEl.addEventListener('click', onCategoryClick);
 
 async function renderCategoriesMenu() {
   try {
-    const resultJson = await api.fetchCategoriesList();
+    const resultJson = await bookshelfApi.fetchBooksCategoryList();
 
-    if (resultJson < 1) {
-      categoriesListEl.innerHTML = 'Sorry we didn`t find anything';
-      return;
+    if (resultJson.length < 1) {
+      categoriesListEl.innerHTML = "Sorry, we didn't find anything";
+      return [];
     }
 
-    const markup =
-      '<li class="categories-list-item" selected="true">All categories</li>' +
-      resultJson.data
-        .map(
-          item => `
-        <li class="categories-list-item">${item.list_name}</li>
-        `,
-        )
-        .join('');
+    const categoriesMarkup = resultJson
+      .map(
+        item => `
+      <li class="categories-list-item">${item.list_name}</li>
+    `,
+      )
+      .join('');
 
-    categoriesListEl.insertAdjacentHTML('beforeend', markup);
+    categoriesListEl.innerHTML = `<li class="categories-list-item" selected="true">All categories</li>${categoriesMarkup}`;
 
-    return resultJson.data;
+    console.log('Categories loaded successfully.'); // Add this console.log() for verification
+    return resultJson;
   } catch (error) {
-    categoriesListEl.innerHTML = `${error}`;
-    return;
+    categoriesListEl.innerHTML = `Error: ${error.message}`;
+    console.error(error);
+    return [];
   }
 }
 
-categoriesListEl.addEventListener('click', onCategoryClick);
-function onCategoryClick(e) {
+async function onCategoryClick(e) {
   if (e.target.nodeName !== 'LI') {
     return;
   }
 
-  const prev = document.querySelectorAll('.categories-list-item[selected="true"]');
-  prev.forEach(element => element.removeAttribute('selected'));
+  const prevSelected = document.querySelector('.categories-list-item[selected="true"]');
+  if (prevSelected) {
+    prevSelected.removeAttribute('selected');
+  }
+
   e.target.setAttribute('selected', 'true');
 
-  return e.target.textContent;
+  const selectedCategory = e.target.textContent;
+  try {
+    const books = await bookshelfApi.fetchByCategory(selectedCategory);
+    console.log('Selected category:', selectedCategory); // Add this console.log() for verification
+    // Here you can use the fetched books to update your page.
+    // For example: updateBookList(books);
+  } catch (error) {
+    console.error(error);
+  }
 }
+
+export let categoriesMenu = renderCategoriesMenu();

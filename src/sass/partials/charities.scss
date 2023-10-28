@@ -8,9 +8,20 @@
   margin: 40px auto;
   padding: 24px 40px 20px 40px;
   position: relative;
+  display: inline-block;
 
   @media screen and (min-width: 768px) {
     height: 474px;
+    margin: 0px;
+    position: absolute;
+    top: 0px;
+    right: 32px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    position: relative;
+    margin-top: 86px;
+    left: 0px;
   }
 
   &__tittle-box {

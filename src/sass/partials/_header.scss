@@ -1,3 +1,5 @@
+@import './variables';
+
 @mixin tablet {
   @media screen and (min-width: 768px) {
     @content;
@@ -169,19 +171,19 @@ input:checked + .slider:before {
   @include tablet {
     flex-direction: row;
     margin-left: 32px;
-    gap: 16px;
+    gap: 0;
   }
 
   @include desktop {
     margin-left: 68px;
-    gap: 24px;
+    gap: 8px;
   }
 
   &__home-btn {
     width: 72px;
     height: 34px;
     border-radius: 36px;
-    background: #eac645;
+    background: none;
     font-size: 14px;
     font-weight: 700;
     border: none;
@@ -189,7 +191,24 @@ input:checked + .slider:before {
 
   &__home {
     text-decoration: none;
-    color: #111;
+    color: #fff;
+
+    @include tablet {
+      color: #111;
+    }
+  }
+
+  &__shop-btn {
+    border-radius: 36px;
+    background: none;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    max-width: 170px;
+
+    @include tablet {
+      padding: 8px 16px;
+    }
   }
 
   &__shop-link {
@@ -206,6 +225,7 @@ input:checked + .slider:before {
 
     @include tablet {
       color: #111;
+      font-weight: 700;
     }
   }
 
@@ -287,4 +307,15 @@ input:checked + .slider:before {
   @include tablet {
     display: flex;
   }
+}
+
+.current {
+  background-color: $yellow;
+  padding: 8px 16px;
+}
+
+.current-text {
+  color: #111;
+  font-weight: 700;
+  fill: #111;
 }

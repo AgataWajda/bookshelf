@@ -76,6 +76,7 @@ function createMarkup(data) {
 </div>`;
   allBooks.innerHTML = bookCard;
 }
+
 async function createPopUpModal(id) {
   allBooks.innerHTML = '';
   try {
@@ -104,14 +105,14 @@ function closePopUpModal() {
   backdropModal.classList.add('is-hidden');
 }
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
     closePopUpModal();
   }
 });
 
-backdropModal.addEventListener('click', (event) => {
-  if (event.target === backdropModal) {
+backdropModal.addEventListener('click', (e) => {
+  if (e.target === backdropModal) {
     closePopUpModal();
   }
 });

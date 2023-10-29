@@ -1,6 +1,10 @@
+import { Bookshelf } from './bookshelf-api';
+
+const bookshelf = new Bookshelf();
 const popUpModal = document.querySelector('.pop-up-modal');
 const backdropModal = document.querySelector('.backdrop-modal');
 const allBooks = document.querySelector('#allBooks');
+const categorieList = document.querySelector('.category-books-list');
 const closeButton = document.querySelector('.close-pop-up-modal-btn');
 const addBookButton = document.querySelector('.add-book-button');
 const storageComment = document.querySelector('.storage-comment');
@@ -8,50 +12,15 @@ const removeBookButton = document.querySelector('.remove-button');
 const LOCALSTORAGE_KEY = 'storage-book-data';
 
 let bookData = {};
-let bookArray = [];
-
+// let bookArray = [];
 function openPopUpModal() {
   popUpModal.classList.remove('is-hidden');
   backdropModal.classList.remove('is-hidden');
 }
-//dodałam button, żeby sprawdzać jak wygląda modal//
-const btn = document.querySelector('.pop-up-btn');
-btn.addEventListener('click', openPopUpModal);
-
-function closePopUpModal() {
-  popUpModal.classList.add('is-hidden');
-  backdropModal.classList.add('is-hidden');
-}
-
-document.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape') {
-    closePopUpModal();
-  }
-});
-
-backdropModal.addEventListener('click', function (event) {
-  if (event.target === backdropModal) {
-    closePopUpModal();
-  }
-});
-
-closeButton.addEventListener('click', closePopUpModal);
-
-async function createPopUpModal(bookId) {
-  allBooks.innerHTML = '';
-  try {
-    const data = await fetchBookById(bookId);
-    createMarkup(data);
-    return data;
-  } catch (error) {
-    console.error('Error', error);
-    throw error;
-  }
-}
-async function fetchBookById(bookId) {
+async function fetchBookById(id) {
   try {
     bookData = {};
-    const response = await fetch(`https://books-backend.p.goit.global/books/${bookId}`);
+    const response = await bookshelf.fetchById(id);
     const data = await response.json();
     bookData = {
       book_image: data.book_image,
@@ -69,7 +38,6 @@ async function fetchBookById(bookId) {
     throw error;
   }
 }
-
 function createMarkup(data) {
   const bookImage = data.book_image;
   const bookTitle = data.title;
@@ -109,6 +77,48 @@ function createMarkup(data) {
   allBooks.innerHTML = bookCard;
 }
 
+async function createPopUpModal(id) {
+  allBooks.innerHTML = '';
+  try {
+    const data = await fetchBookById(id);
+    createMarkup(data);
+    return data;
+  } catch (error) {
+    console.error('Error', error);
+    throw error;
+  }
+}
+function onIdClick(e) {
+  if (
+    e.target.nodeName === 'UL'
+    || e.target.nodeName === 'DIV'
+    || e.target.nodeName === 'H2'
+  ) return;
+  const id = e.target.closest('li').id;
+  openPopUpModal();
+  createPopUpModal(id);
+}
+categorieList.addEventListener('click', onIdClick);
+
+function closePopUpModal() {
+  popUpModal.classList.add('is-hidden');
+  backdropModal.classList.add('is-hidden');
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closePopUpModal();
+  }
+});
+
+backdropModal.addEventListener('click', (e) => {
+  if (e.target === backdropModal) {
+    closePopUpModal();
+  }
+});
+
+closeButton.addEventListener('click', closePopUpModal);
+
 function onAddBook() {
   const searchBookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
   const bookDataToSave = bookData;
@@ -128,7 +138,7 @@ function onRemoveBook() {
 
   const bookToDelete = bookData.id;
   const bookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
-  const indexToDelete = bookArray.findIndex(book => book.id === bookToDelete);
+  const indexToDelete = bookArray.findIndex((book) => book.id === bookToDelete);
   bookArray.splice(indexToDelete, 1);
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookArray));
 

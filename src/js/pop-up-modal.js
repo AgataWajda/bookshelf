@@ -1,8 +1,10 @@
-import { fetchById } from './bookshelf-api';
+import { Bookshelf } from './bookshelf-api';
 
+const bookshelf = new Bookshelf();
 const popUpModal = document.querySelector('.pop-up-modal');
 const backdropModal = document.querySelector('.backdrop-modal');
 const allBooks = document.querySelector('#allBooks');
+const categorieList = document.querySelector('.category-books-list');
 const closeButton = document.querySelector('.close-pop-up-modal-btn');
 const addBookButton = document.querySelector('.add-book-button');
 const storageComment = document.querySelector('.storage-comment');
@@ -10,82 +12,32 @@ const removeBookButton = document.querySelector('.remove-button');
 const LOCALSTORAGE_KEY = 'storage-book-data';
 
 let bookData = {};
-let bookArray = [];
-
+// let bookArray = [];
 function openPopUpModal() {
   popUpModal.classList.remove('is-hidden');
   backdropModal.classList.remove('is-hidden');
 }
-// dodałam button, żeby sprawdzać jak wygląda modal//
-const btn = document.querySelector('.pop-up-btn');
-btn.addEventListener('click', openPopUpModal);
-
-function closePopUpModal() {
-  popUpModal.classList.add('is-hidden');
-  backdropModal.classList.add('is-hidden');
-}
-
-document.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape') {
-    closePopUpModal();
-  }
-});
-
-backdropModal.addEventListener('click', function (event) {
-  if (event.target === backdropModal) {
-    closePopUpModal();
-  }
-});
-
-closeButton.addEventListener('click', closePopUpModal);
-
-
-async function createPopUpModal(bookId) {
-  allBooks.innerHTML = '';
+async function fetchBookById(id) {
   try {
-    const data = await fetchBookById(bookId);
-    createMarkup(data);
+    bookData = {};
+    const response = await bookshelf.fetchById(id);
+    const data = await response.json();
+    bookData = {
+      book_image: data.book_image,
+      title: data.title,
+      author: data.author,
+      description: data.description,
+      marketAmazon: data.buy_links[0].url,
+      marketAppleBooks: data.buy_links[1].url,
+      list_name: data.list_name,
+      id: data._id,
+    };
     return data;
   } catch (error) {
     console.error('Error', error);
     throw error;
   }
 }
-
-const addModalListenerFunction = () => {
-  let liElements = document.querySelectorAll('.movie-card');
-  liElements.forEach(element => {
-    element.addEventListener('click', () => {
-      getMovieAndDisplayModal(element.dataset.id, element.dataset.type);
-    });
-  });
-};
-
-const getBookAndDisplayModal = async (id) => {
-  const bookDetails = await fetchById(id);
-  console.log(bookDetails);
-// async function fetchBookById(bookId) {
-//   try {
-//     bookData = {};
-//     const response = await fetch(`https://books-backend.p.goit.global/books/${bookId}`);
-//     const data = await response.json();
-//     bookData = {
-//       book_image: data.book_image,
-//       title: data.title,
-//       author: data.author,
-//       description: data.description,
-//       marketAmazon: data.buy_links[0].url,
-//       marketAppleBooks: data.buy_links[1].url,
-//       list_name: data.list_name,
-//       id: data._id,
-//     };
-//     return data;
-//   } catch (error) {
-//     console.error('Error', error);
-//     throw error;
-//   }
-// }
-
 function createMarkup(data) {
   const bookImage = data.book_image;
   const bookTitle = data.title;
@@ -124,6 +76,47 @@ function createMarkup(data) {
 </div>`;
   allBooks.innerHTML = bookCard;
 }
+async function createPopUpModal(id) {
+  allBooks.innerHTML = '';
+  try {
+    const data = await fetchBookById(id);
+    createMarkup(data);
+    return data;
+  } catch (error) {
+    console.error('Error', error);
+    throw error;
+  }
+}
+function onIdClick(e) {
+  if (
+    e.target.nodeName === 'UL'
+    || e.target.nodeName === 'DIV'
+    || e.target.nodeName === 'H2'
+  ) return;
+  const id = e.target.closest('li').id;
+  openPopUpModal();
+  createPopUpModal(id);
+}
+categorieList.addEventListener('click', onIdClick);
+
+function closePopUpModal() {
+  popUpModal.classList.add('is-hidden');
+  backdropModal.classList.add('is-hidden');
+}
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closePopUpModal();
+  }
+});
+
+backdropModal.addEventListener('click', (event) => {
+  if (event.target === backdropModal) {
+    closePopUpModal();
+  }
+});
+
+closeButton.addEventListener('click', closePopUpModal);
 
 function onAddBook() {
   const searchBookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
@@ -144,7 +137,7 @@ function onRemoveBook() {
 
   const bookToDelete = bookData.id;
   const bookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
-  const indexToDelete = bookArray.findIndex(book => book.id === bookToDelete);
+  const indexToDelete = bookArray.findIndex((book) => book.id === bookToDelete);
   bookArray.splice(indexToDelete, 1);
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookArray));
 

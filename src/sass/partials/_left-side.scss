@@ -19,6 +19,15 @@
   scrollbar-color: #e0e0e0 transparent;
   scrollbar-width: thin;
   scrollbar-gutter: stable;
+  display: inline-block;
+  @media screen and (min-width: 768px) and (max-width: 1439.8px) {
+    max-width: 328px;
+    height: 472px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    height: 356px;
+  }
 }
 .categories-list {
   color: rgba(17, 17, 17, 0.6);

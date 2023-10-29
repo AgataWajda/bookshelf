@@ -1,4 +1,4 @@
-// import { fetchById } from './bookshelf-api';
+import { fetchById } from './bookshelf-api';
 
 const popUpModal = document.querySelector('.pop-up-modal');
 const backdropModal = document.querySelector('.backdrop-modal');
@@ -51,6 +51,19 @@ async function createPopUpModal(bookId) {
     throw error;
   }
 }
+
+const addModalListenerFunction = () => {
+  let liElements = document.querySelectorAll('.movie-card');
+  liElements.forEach(element => {
+    element.addEventListener('click', () => {
+      getMovieAndDisplayModal(element.dataset.id, element.dataset.type);
+    });
+  });
+};
+
+const getBookAndDisplayModal = async (id) => {
+  const bookDetails = await fetchById(id);
+  console.log(bookDetails);
 // async function fetchBookById(bookId) {
 //   try {
 //     bookData = {};

@@ -1,5 +1,7 @@
 import './pop-up-modal';
 import './categories-menu';
+import './best-sellers-books';
+import './category-books-list';
 import './charities';
 import { Bookshelf } from './bookshelf-api';
 

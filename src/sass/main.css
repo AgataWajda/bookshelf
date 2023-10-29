@@ -540,8 +540,25 @@ h2 {
   letter-spacing: -0.04em;
 }
 
-svg {
-  fill: #111111;
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.image-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  display: inline-block;
+}
+
+.white-image {
+  mix-blend-mode: lighten;
+  filter: brightness(0) invert(1);
+}
+
+.background {
+  background-color: #111111;
 }
 
 .button-shopping {
@@ -555,6 +572,23 @@ svg {
   background-color: #4f2ee8;
 }
 
-svg {
-  fill: #111111;
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.image-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  display: inline-block;
+}
+
+.white-image {
+  mix-blend-mode: lighten;
+  filter: brightness(0) invert(1);
+}
+
+.background {
+  background-color: #111111;
 }/*# sourceMappingURL=main.css.map */

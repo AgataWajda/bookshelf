@@ -6,6 +6,23 @@ $white: #ffffff;
 $white1: #f6f6f6;
 $grey: #b4afaf;
 
-svg {
-  fill: #111111;
+.grayscale {
+  filter: grayscale(100%);
+}
+.image-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  display: inline-block;
+}
+
+.white-image {
+  mix-blend-mode: lighten;
+  filter: brightness(0) invert(1);
+}
+
+//na potrzebę widoczności białego loga
+.background {
+  background-color: #111111;
 }

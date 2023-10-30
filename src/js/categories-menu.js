@@ -48,9 +48,7 @@ async function onCategoryClick(e) {
   const selectedCategory = e.target.textContent;
   try {
     const books = await bookshelfApi.fetchByCategory(selectedCategory);
-    console.log('Selected category:', selectedCategory); // Add this console.log() for verification
-    // Here you can use the fetched books to update your page.
-    // For example: updateBookList(books);
+    console.log('Selected category:', selectedCategory);
   } catch (error) {
     console.error(error);
   }

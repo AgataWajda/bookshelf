@@ -1,16 +1,5 @@
 body.dark {
   background-color: #202024;
-
-  /*
-  --body-background-color: #202024;
-  --body-secondary-color: #111;
-  --text-color: rgba(255, 255, 255, 0.6);  
-  --text-third-color: #B4AFAF;
-  --text-secondary-color: #fff;
-  --text-fourth-color: #eac645;
-  --logo-color: #f3f3f3;
-  --scroll-bar: rgba(17, 17, 17, 0.6);
-  */
 }
 .dark .header__menu {
   background-color: #111;
@@ -44,4 +33,16 @@ body.dark {
   &__shop-text {
     color: #fff;
   }
+}
+
+.dark .simplebar-scrollbar {
+  background-color: var(--scroll-bar-dark);
+}
+
+.dark .categories-menu {
+  scrollbar-color: var(--scroll-bar-dark) transparent;
+}
+
+.dark .categories-menu::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar-dark);
 }

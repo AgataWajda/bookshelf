@@ -15,10 +15,10 @@ function addDarkClassToHTML() {
 
     if (localStorage.getItem('theme') === 'dark') {
       body.classList.add('dark');
-      switchElement.classList.add('dark'); // Dodaj klasę dark również do switcha
+      switchElement.classList.add('dark');
     } else {
       body.classList.remove('dark');
-      switchElement.classList.remove('dark'); // Usuń klasę dark ze switcha
+      switchElement.classList.remove('dark');
     }
   } catch (err) {
     console.error(err);

@@ -1,3 +1,5 @@
+
+import './dark-theme';
 import './categories-menu';
 import './best-sellers-books';
 import './category-books-list';

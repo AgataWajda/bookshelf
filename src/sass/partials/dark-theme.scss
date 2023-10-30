@@ -1,0 +1,47 @@
+body.dark {
+  background-color: #202024;
+
+  /*
+  --body-background-color: #202024;
+  --body-secondary-color: #111;
+  --text-color: rgba(255, 255, 255, 0.6);  
+  --text-third-color: #B4AFAF;
+  --text-secondary-color: #fff;
+  --text-fourth-color: #eac645;
+  --logo-color: #f3f3f3;
+  --scroll-bar: rgba(17, 17, 17, 0.6);
+  */
+}
+.dark .header__menu {
+  background-color: #111;
+  border: 2px solid #ffffff;
+}
+
+.dark .categories-menu {
+  scrollbar-color: rgba(17, 17, 17, 0.6) rgba(17, 17, 17, 0.6);
+}
+
+.dark .categories-list {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .books-descr {
+  color: #ffffff;
+}
+
+.dark .categories-list-item:hover,
+.dark .categories-list-item:focus,
+.dark .categories-list-item[selected='true'] {
+  cursor: pointer;
+  color: #eac645;
+}
+
+.dark .title-book {
+  color: #fff;
+}
+
+.dark .main-nav {
+  &__shop-text {
+    color: #fff;
+  }
+}

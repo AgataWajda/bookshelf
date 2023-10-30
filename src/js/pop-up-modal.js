@@ -8,6 +8,7 @@ const popUpModal = document.querySelector('.pop-up-modal');
 const backdropModal = document.querySelector('.backdrop-modal');
 const allBooks = document.querySelector('#allBooks');
 const categorieList = document.querySelector('.category-books-list');
+const bestSellers = document.querySelector('.best-sellers');
 const closeButton = document.querySelector('.close-pop-up-modal-btn');
 const addBookButton = document.querySelector('.add-book-button');
 const storageComment = document.querySelector('.storage-comment');
@@ -26,8 +27,8 @@ function closePopUpModal() {
 async function fetchBookById(id) {
   try {
     bookData = {};
-    const response = await bookshelf.fetchById(id);
-    const data = await response.json();
+    const data = await bookshelf.fetchById(id);
+    console.log(data);
     bookData = {
       book_image: data.book_image,
       title: data.title,
@@ -91,7 +92,7 @@ document.addEventListener('DOMContentLoaded', createPopUpModal);
 
 function onIdClick(e) {
   if (['UL', 'DIV', 'H2'].includes(e.target.nodeName)) return;
-  const id = e.target.closest('li').id;
+  const id = e.target.closest('li').getAttribute('data-id');
   openPopUpModal();
   createPopUpModal(id);
 }
@@ -125,6 +126,11 @@ if (categorieList) {
   categorieList.addEventListener('click', onIdClick);
 } else {
   console.error('Element .category-books-list nie został znaleziony!');
+}
+if (bestSellers) {
+  bestSellers.addEventListener('click', onIdClick);
+} else {
+  console.error('Element .best-sellers nie został znaleziony!');
 }
 
 if (backdropModal) {

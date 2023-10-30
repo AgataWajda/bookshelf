@@ -1,10 +1,11 @@
-import './pop-up-modal';
+
 import './dark-theme';
 import './categories-menu';
 import './best-sellers-books';
 import './category-books-list';
 import './charities';
 import { Bookshelf } from './bookshelf-api';
+import './pop-up-modal';
 
 const my_Bookshelf = new Bookshelf();
 my_Bookshelf.fetchByCategory('Business Books').then(data => {

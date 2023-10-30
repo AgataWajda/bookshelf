@@ -84,6 +84,20 @@ async function createPopUpModal(id) {
   try {
     const data = await fetchBookById(id);
     createMarkup(data);
+    let addedBooks = localStorage.getItem('storage-book-data');
+
+    let booksArray = JSON.parse(addedBooks);
+    console.log(booksArray);
+    const isInShop = booksArray.find(book => book.id === id);
+    console.log(isInShop);
+
+    if (isInShop === undefined) {
+      addBookButton.style.display = 'block';
+      removeBookButton.style.display = 'none';
+    } else if (isInShop) {
+      addBookButton.style.display = 'none';
+      removeBookButton.style.display = 'block';
+    }
   } catch (error) {
     console.error('Error', error);
   }
@@ -93,6 +107,14 @@ document.addEventListener('DOMContentLoaded', createPopUpModal);
 function onIdClick(e) {
   if (['UL', 'DIV', 'H2'].includes(e.target.nodeName)) return;
   const id = e.target.closest('li').getAttribute('data-id');
+  openPopUpModal();
+  createPopUpModal(id);
+}
+
+function onIdClickAll(e) {
+  if (['UL', 'DIV', 'H2'].includes(e.target.nodeName)) return;
+  const id = e.target.closest('a').getAttribute('data-id');
+  console.log(id);
   openPopUpModal();
   createPopUpModal(id);
 }
@@ -128,7 +150,7 @@ if (categorieList) {
   console.error('Element .category-books-list nie został znaleziony!');
 }
 if (bestSellers) {
-  bestSellers.addEventListener('click', onIdClick);
+  bestSellers.addEventListener('click', onIdClickAll);
 } else {
   console.error('Element .best-sellers nie został znaleziony!');
 }
@@ -149,17 +171,9 @@ if (closeButton) {
   console.error('Element .close-pop-up-modal-btn nie został znaleziony!');
 }
 
-if (addBookButton) {
-  addBookButton.addEventListener('click', onAddBook);
-} else {
-  console.error('Element .add-book-button nie został znaleziony!');
-}
+addBookButton.addEventListener('click', onAddBook);
 
-if (removeBookButton) {
-  removeBookButton.addEventListener('click', onRemoveBook);
-} else {
-  console.error('Element .remove-button nie został znaleziony!');
-}
+removeBookButton.addEventListener('click', onRemoveBook);
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {

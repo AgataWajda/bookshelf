@@ -1,9 +1,12 @@
 import { Bookshelf } from './bookshelf-api';
+import amazonPng from '../images/pop-up-modal/iconAmazon@x1.png';
+import amazonPng2x from '../images/pop-up-modal/iconAmazon@x2.png';
+import appleBookPng from '../images/pop-up-modal/iconAppleBooks@x1.png';
+import appleBookPng2x from '../images/pop-up-modal/iconAppleBooks@x2.png';
 
 const bookshelf = new Bookshelf();
 const LOCALSTORAGE_KEY = 'storage-book-data';
 let bookData = {};
-
 const popUpModal = document.querySelector('.pop-up-modal');
 const backdropModal = document.querySelector('.backdrop-modal');
 const allBooks = document.querySelector('#allBooks');
@@ -60,18 +63,18 @@ function createMarkup(data) {
             <img
               width="62"
               height="19"
-              srcset="./images/pop-up-modal/iconAmazon@x1.png 1x,
-                      ./images/pop-up-modal/iconAmazon@x2.png 2x"
-              src="./images/pop-up-modal/iconAmazon@x1.png"
+              srcset="${amazonPng},
+                      ${amazonPng2x}"
+              src="${amazonPng}"
               alt="Amazon"/>
           </a></li>
           <li class="buy-links-item"><a href="${marketAppleBooks}" target="_blank">
             <img
               width="33"
               height="32"
-              srcset="./images/pop-up-modal/iconAppleBooks@x1.png 1x,
-                      ./images/pop-up-modal/iconAppleBooks@x2.png 2x"
-              src="./images/pop-up-modal/iconAppleBooks@x1.png"
+              srcset="${appleBookPng},
+                      ${appleBookPng2x}"
+              src="${appleBookPng}"
               alt="AppleBooks"/>
           </a></li>
         </ul>
@@ -96,6 +99,12 @@ function onIdClick(e) {
   openPopUpModal();
   createPopUpModal(id);
 }
+function onIdClickAll(e) {
+  if (['UL', 'DIV', 'H2'].includes(e.target.nodeName)) return;
+  const id = e.target.closest('a').getAttribute('data-id');
+  openPopUpModal();
+  createPopUpModal(id);
+}
 
 function onAddBook() {
   const searchBookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
@@ -105,8 +114,7 @@ function onAddBook() {
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(searchBookArray));
   addBookButton.style.display = 'none';
   removeBookButton.style.display = 'block';
-  storageComment.textContent =
-    'Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
+  storageComment.textContent = 'Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
 }
 
 function onRemoveBook() {
@@ -128,7 +136,7 @@ if (categorieList) {
   console.error('Element .category-books-list nie został znaleziony!');
 }
 if (bestSellers) {
-  bestSellers.addEventListener('click', onIdClick);
+  bestSellers.addEventListener('click', onIdClickAll);
 } else {
   console.error('Element .best-sellers nie został znaleziony!');
 }

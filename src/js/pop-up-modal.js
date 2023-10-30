@@ -4,6 +4,7 @@ const bookshelf = new Bookshelf();
 const LOCALSTORAGE_KEY = 'storage-book-data';
 let bookData = {};
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const popUpModal = document.querySelector('.pop-up-modal');
   const backdropModal = document.querySelector('.backdrop-modal');
@@ -95,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function onAddBook() {
     const searchBookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
     const bookDataToSave = bookData;
+
     searchBookArray.push(bookDataToSave);
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(searchBookArray));
     addBookButton.style.display = 'none';
@@ -116,11 +118,13 @@ document.addEventListener('DOMContentLoaded', () => {
     storageComment.textContent = '';
   }
 
+
   if (categorieList) {
     categorieList.addEventListener('click', onIdClick);
   } else {
     console.error('Element .category-books-list nie został znaleziony!');
   }
+
 
   if (backdropModal) {
     backdropModal.addEventListener('click', e => {

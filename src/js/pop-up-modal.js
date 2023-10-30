@@ -107,26 +107,21 @@ async function createPopUpModal(id) {
 }
 document.addEventListener('DOMContentLoaded', createPopUpModal);
 
-function onIdClick(e) {
+const onIdClick = e => {
   if (['UL', 'DIV', 'H2'].includes(e.target.nodeName)) return;
   const id = e.target.closest('li').getAttribute('data-id');
   openPopUpModal();
   createPopUpModal(id);
-}
-function onIdClickAll(e) {
-  if (['UL', 'DIV', 'H2'].includes(e.target.nodeName)) return;
-  const id = e.target.closest('a').getAttribute('data-id');
-  openPopUpModal();
-  createPopUpModal(id);
-}
 
-function onIdClickAll(e) {
+};
+
+const onIdClickAll = e => {
   if (['UL', 'DIV', 'H2'].includes(e.target.nodeName)) return;
   const id = e.target.closest('a').getAttribute('data-id');
-  console.log(id);
+
   openPopUpModal();
   createPopUpModal(id);
-}
+};
 
 function onAddBook() {
   const searchBookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];

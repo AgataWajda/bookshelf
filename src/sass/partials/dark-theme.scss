@@ -46,3 +46,13 @@ body.dark {
 .dark .categories-menu::-webkit-scrollbar-thumb {
   background-color: var(--scroll-bar-dark);
 }
+
+.dark .logo__text,
+.dark .main-nav__shop-icon {
+  fill: #f3f3f3;
+}
+
+.dark .books-card-title,
+.dark .card__heading {
+  color: #fff;
+}

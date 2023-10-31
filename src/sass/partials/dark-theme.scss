@@ -47,6 +47,11 @@ body.dark {
   background-color: var(--scroll-bar-dark);
 }
 
+
+.dark .switch input:checked + .slider:before,
+.dark .switch.checked .slider:before {
+  transform: translateX(20px);
+
 .dark .logo__text,
 .dark .main-nav__shop-icon {
   fill: #f3f3f3;
@@ -55,4 +60,5 @@ body.dark {
 .dark .books-card-title,
 .dark .card__heading {
   color: #fff;
+
 }

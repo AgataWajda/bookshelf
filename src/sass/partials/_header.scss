@@ -89,6 +89,14 @@
   height: 0;
 }
 
+.switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.switch.checked .slider:before {
+  transform: translateX(20px);
+}
+
 /* The slider */
 .slider {
   position: absolute;

@@ -1,10 +1,9 @@
-
-import './dark-theme';
+//import './dark-theme';
+import { Bookshelf } from './bookshelf-api';
 import './categories-menu';
 import './best-sellers-books';
 import './category-books-list';
 import './charities';
-import { Bookshelf } from './bookshelf-api';
 import './pop-up-modal';
 
 const my_Bookshelf = new Bookshelf();

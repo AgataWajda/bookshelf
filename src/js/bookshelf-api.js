@@ -80,7 +80,7 @@ export class Bookshelf {
   // will receive complete information about the book
   async fetchById(id) {
     try {
-      const response = await this.fetchWithTimeout(`${BASE_API_URL}${id}`, {
+      const response = await this.fetchWithTimeout(`${BASE_API_URL}/${id}`, {
         timeout: 6000,
       });
       // ok - shorthand for checking that the status is in the range 2xx (boolean)
@@ -94,6 +94,5 @@ export class Bookshelf {
     }
   }
 }
-
 
 export { fetchById };

@@ -46,3 +46,8 @@ body.dark {
 .dark .categories-menu::-webkit-scrollbar-thumb {
   background-color: var(--scroll-bar-dark);
 }
+
+.dark .switch input:checked + .slider:before,
+.dark .switch.checked .slider:before {
+  transform: translateX(20px);
+}

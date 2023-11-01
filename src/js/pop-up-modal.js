@@ -1,4 +1,8 @@
 import { Bookshelf } from './bookshelf-api';
+import amazonIcon from '../images/pop-up-modal/iconAmazon@x1.png';
+import appleBooksIcon from '../images/pop-up-modal/iconAppleBooks@x1.png';
+import amazonIcon from '../images/pop-up-modal/iconAmazon@x2.png';
+import appleBooksIcon from '../images/pop-up-modal/iconAppleBooks@x2.png';
 
 const bookshelf = new Bookshelf();
 const LOCALSTORAGE_KEY = 'storage-book-data';
@@ -34,6 +38,7 @@ async function fetchBookById(id) {
       book_image: data.book_image,
       title: data.title,
       author: data.author,
+      category: data.category,
       description: data.description,
       marketAmazon: data.buy_links[0].url,
       marketAppleBooks: data.buy_links[1].url,
@@ -55,8 +60,16 @@ function createMarkup(data) {
       <p class="author">${data.author}</p>
       <p class="description">${data.description}</p>
       <ul class="buy-links">
-        <li class="buy-links-item"><a href="${data.marketAmazon}" target="_blank">Amazon</a></li>
-        <li class="buy-links-item"><a href="${data.marketAppleBooks}" target="_blank">AppleBooks</a></li>
+      <li class="buy-links-item">
+      <a href="${data.marketAmazon}" target="_blank">
+      <img src="${amazonIcon}" alt="Amazon">
+  </a>
+    </li>
+    <li class="buy-links-item">
+  <a href="${data.marketAppleBooks}" target="_blank">
+  <img src="${appleBooksIcon}" alt="AppleBooks">
+  </a>
+</li>
       </ul>
     </div>`;
   allBooks.innerHTML = bookCard;

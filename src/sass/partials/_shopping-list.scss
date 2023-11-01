@@ -1,3 +1,9 @@
+.shopping-h1-position {
+  position: relative;
+  top: -570px;
+  left: 33%;
+}
+
 .empty {
   position: relative;
   top: -300px;
@@ -20,6 +26,12 @@
   height: 241px;
 }
 
+.basket {
+  position: relative;
+  top: -550px;
+  left: 33%;
+}
+
 .shopping-list-container {
   list-style-type: none;
   padding: 0;
@@ -28,14 +40,18 @@
 .shopping-list-item {
   display: flex;
   align-items: center;
+  border: solid 2px $violet;
+  max-width: 996px;
+  height: 213px;
+  border-radius: 16px;
   margin-bottom: 16px;
 }
 
 .shopping-list-item-image {
-  width: 50px;
-  height: 50px;
+  width: 116px;
+  height: 165px;
   object-fit: cover;
-  margin-right: 10px;
+  margin: 24px 24px 24px 24px;
 }
 
 /*.shopping-list-item-info {
@@ -43,7 +59,11 @@
 }*/
 
 .shopping-list-item-title,
-.shopping-list-item-author {
+.shopping-list-item-author,
+.shopping-list-item-category,
+.shopping-list-item-description {
+  width: 810px;
+  min-height: 2px;
   margin: 0;
 }
 .is-hidden {
@@ -51,8 +71,45 @@
 }
 
 .icon-trash {
+  position: relative;
+  top: -75px;
+  left: -2%;
   width: 20px;
   height: 20px;
-  fill: black;
-  z-index: 10;
+  fill: $white;
+}
+.icon-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30px;
+  min-height: 30px;
+  background-color: $violet;
+  border-radius: 16px;
+}
+
+.link-position {
+  position: relative;
+  left: 600%;
+}
+
+.navbar {
+  display: flex;
+  padding: 10px;
+  background-color: $white1;
+  .nav-btn {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .nav-input {
+    width: 10px;
+    padding: 5px;
+  }
+}
+
+.navbar {
+  position: absolute;
+  top: 900px;
+  left: 800px;
+  gap: 10px;
 }

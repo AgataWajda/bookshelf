@@ -19,14 +19,24 @@
   </head>
 
   <body>
+    <style>
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+    </style>
     <include src="./partials/header-shopping.html"></include>
 
     <div class="container body-wrapper">
-      <aside class="left-side">
+      <aside class="left-side-shopping">
         <include src="./partials/charities.html"></include>
       </aside>
     </div>
-
+    <div class="shopping-h1-position">
+      <h1>Shopping List</h1>
+    </div>
     <div class="empty">
       <p class="font-shopping-list">
         This page is empty, add some books and <br />proceed to order.
@@ -34,10 +44,23 @@
       <div class="empty-png"></div>
     </div>
 
-    <div class="container">
+    <div class="basket">
       <ul class="shopping-list-container"></ul>
     </div>
+
+    <!-- Add this at the end of your shopping-list.html file -->
+    <div class="navbar is-hidden">
+      <button class="first-page-button">First</button>
+      <button class="previous-page-button">Previous</button>
+      <span class="page-indicator">Page 1 of X</span>
+      <input type="number" class="page-input" />
+      <button class="go-to-page-button">Go</button>
+      <button class="next-page-button">Next</button>
+      <button class="last-page-button">Last</button>
+    </div>
+
     <script src="./js/header-modal.js" type="module"></script>
     <script src="./js/shopping-list.js" type="module" defer></script>
+    <script src="./js/dark-theme.js" type="module"></script>
   </body>
 </html>

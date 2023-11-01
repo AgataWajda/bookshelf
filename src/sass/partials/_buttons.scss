@@ -5,7 +5,34 @@
   height: 64px;
   padding: 20px, 173px, 20px, 173px;
 }
+
 .button-shopping:hover,
 .button-shopping:focus {
   background-color: $violet;
+}
+
+.previous-page-button,
+.page-input,
+.go-to-page-button,
+.next-page-button,
+.last-page-button,
+.first-page-button {
+  border-radius: 5px;
+  background-color: $white;
+}
+
+.page-input {
+  width: 50px;
+}
+.previous-page-button,
+.page-input,
+.go-to-page-button,
+.next-page-button,
+.last-page-button,
+.first-page-button:hover {
+  &:hover,
+  &:focus {
+    background-color: $violet;
+    color: $white;
+  }
 }

@@ -1,4 +1,3 @@
-//import './dark-theme';
 import { Bookshelf } from './bookshelf-api';
 import './categories-menu';
 import './best-sellers-books';

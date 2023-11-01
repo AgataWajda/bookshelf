@@ -12,15 +12,13 @@
 }
 
 .header {
-  font-family: 'DM Sans', sans-serif;
-
   &__menu {
     padding: 18px 20px;
     border-radius: 0px 0px 8px 8px;
-    border: 2px solid #111;
+    border: 2px solid $black;
     position: relative;
     z-index: 999;
-    background-color: #fff;
+    background-color: $white;
     margin: 0;
     display: flex;
     justify-content: space-between;
@@ -52,7 +50,7 @@
     height: 28px;
     padding: 0;
     border: none;
-    background-color: #fff;
+    background-color: $white;
     cursor: pointer;
 
     @include tablet {
@@ -65,7 +63,7 @@
     height: 28px;
     padding: 0;
     border: none;
-    background-color: #fff;
+    background-color: $white;
     cursor: pointer;
   }
 
@@ -105,7 +103,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
+  background: linear-gradient(180deg, $violet 0%, $white 100%);
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1) inset;
   transition: 0.4s;
 }
@@ -117,7 +115,7 @@
   width: 18px;
   left: 1px;
   bottom: 1px;
-  background: #ffffff, #f7f7f7;
+  background: $white, $white1;
   transition: 0.4s;
 }
 
@@ -156,8 +154,7 @@ input:checked + .slider:before {
   z-index: 99;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4f2ee8 18.03%, #fff 100%);
-  font-family: 'DM Sans', sans-serif;
+  background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, $violet 18.03%, $white 100%);
 
   &__books-img {
     width: calc((450px / 375px) * 100%);
@@ -174,7 +171,6 @@ input:checked + .slider:before {
   flex-direction: column;
   gap: 14px;
   margin-left: calc((119px / 375px) * 100%);
-  font-family: 'DM Sans', sans-serif;
 
   @include tablet {
     flex-direction: row;
@@ -199,10 +195,10 @@ input:checked + .slider:before {
 
   &__home {
     text-decoration: none;
-    color: #fff;
+    color: $white;
 
     @include tablet {
-      color: #111;
+      color: $black;
     }
   }
 
@@ -227,12 +223,12 @@ input:checked + .slider:before {
   }
 
   &__shop-text {
-    color: #fff;
+    color: $white;
     font-size: 14px;
     font-weight: 500;
 
     @include tablet {
-      color: #111;
+      color: $black;
       font-weight: 700;
     }
   }
@@ -240,9 +236,9 @@ input:checked + .slider:before {
   &__shop-icon {
     width: 20px;
     height: 20px;
-    fill: #fff;
+    fill: $white;
     @include tablet {
-      fill: #111;
+      fill: $black;
     }
   }
 
@@ -253,13 +249,13 @@ input:checked + .slider:before {
     align-items: center;
     gap: 4px;
     border-radius: 18px;
-    border: 2px solid #111;
-    background: #fff;
+    border: 2px solid $black;
+    background: $white;
     position: absolute;
     z-index: 99;
     bottom: 20px;
     left: 20px;
-    color: #111;
+    color: $black;
     font-size: 14px;
     font-weight: 500;
     text-align: left;
@@ -268,8 +264,8 @@ input:checked + .slider:before {
 
     &:hover,
     &:focus {
-      background-color: #4f2ee8;
-      color: #fff;
+      background-color: $violet;
+      color: $white;
     }
   }
 
@@ -285,10 +281,9 @@ input:checked + .slider:before {
   display: flex;
   gap: 9px;
   align-items: center;
-  font-family: 'DM Sans', sans-serif;
 
   @include tablet {
-    background-color: #4f2ee8;
+    background-color: $violet;
     padding: 4px 12px;
     border-radius: 36px;
   }
@@ -300,7 +295,7 @@ input:checked + .slider:before {
   }
 
   &__name {
-    color: #fff;
+    color: $white;
     font-size: 22px;
     font-weight: 700;
     display: flex;
@@ -323,7 +318,7 @@ input:checked + .slider:before {
 }
 
 .current-text {
-  color: #111;
+  color: $black;
   font-weight: 700;
-  fill: #111;
+  fill: $black;
 }

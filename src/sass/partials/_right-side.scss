@@ -1,3 +1,5 @@
+@import '../partials/variables';
+
 @media screen and (min-width: 1440px) {
   .best-sellers {
     width: 996px;
@@ -40,7 +42,7 @@
   font-size: 32px;
   line-height: calc(38 / 32);
   letter-spacing: -0.04em;
-  color: #111111;
+  color: $black;
   margin-top: 0;
   margin-bottom: 40px;
 }
@@ -61,14 +63,14 @@
 }
 
 .title-book-span {
-  color: #4f2ee8;
+  color: $violet;
 }
 
 .books-list-title {
   font-size: 14px;
   line-height: calc(18 / 14);
   letter-spacing: 0.03em;
-  color: #b4afaf;
+  color: $grey;
   margin-top: 0;
   margin-bottom: 18px;
   text-transform: uppercase;
@@ -133,7 +135,7 @@
   margin-bottom: 4px;
   height: 18px;
   overflow: hidden;
-  color: #111111;
+  color: $black;
 }
 
 @media screen and (min-width: 768px) {
@@ -148,7 +150,7 @@
   font-size: 12px;
   line-height: calc(14 / 12);
   letter-spacing: -0.04em;
-  color: #b4afaf;
+  color: $grey;
   margin: 0;
 }
 
@@ -164,7 +166,7 @@
   margin-left: auto;
   margin-top: 8px;
   padding: 14px 28px;
-  border: 2px solid #4f2ee8;
+  border: 2px solid $violet;
   border-radius: 40px;
   font-weight: 700;
   font-size: 14px;
@@ -190,8 +192,8 @@
 
 .books-btn:hover,
 .books-btn:focus {
-  background-color: #4f2ee8;
-  color: #fff;
+  background-color: $violet;
+  color: $white;
 }
 
 .books-btn:focus {
@@ -225,7 +227,7 @@
   height: 27%;
   opacity: 0;
 
-  background: #eac645;
+  background: $yellow;
   user-select: none;
 
   transition-duration: 250ms;
@@ -235,7 +237,7 @@
 .books-overlay-text {
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: #111111;
+  color: $black;
   font-size: 14px;
   font-weight: 500;
   line-height: calc(18 / 14);
@@ -256,7 +258,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: calc(24 / 20);
-  color: #4f2ee8;
+  color: $violet;
 }
 
 .books-card-container.active {

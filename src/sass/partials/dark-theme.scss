@@ -1,9 +1,11 @@
+@import '../partials/variables';
+
 body.dark {
-  background-color: #202024;
+  background-color: $black1;
 }
 .dark .header__menu {
-  background-color: #111;
-  border: 2px solid #ffffff;
+  background-color: $black;
+  border: 2px solid $white;
 }
 
 .dark .categories-menu {
@@ -15,23 +17,23 @@ body.dark {
 }
 
 .dark .books-descr {
-  color: #ffffff;
+  color: $white;
 }
 
 .dark .categories-list-item:hover,
 .dark .categories-list-item:focus,
 .dark .categories-list-item[selected='true'] {
   cursor: pointer;
-  color: #eac645;
+  color: $yellow;
 }
 
 .dark .title-book {
-  color: #fff;
+  color: $white;
 }
 
 .dark .main-nav {
   &__shop-text {
-    color: #fff;
+    color: $white;
   }
 }
 
@@ -53,10 +55,10 @@ body.dark {
 }
 .dark .logo__text,
 .dark .main-nav__shop-icon {
-  fill: #f3f3f3;
+  fill: $white1;
 }
 
 .dark .books-card-title,
 .dark .card__heading {
-  color: #fff;
+  color: $white;
 }

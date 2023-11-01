@@ -1,3 +1,5 @@
+@import '../partials/variables';
+
 .backdrop {
   position: fixed;
   z-index: 1000;
@@ -5,7 +7,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #4f2ee8;
+  background-color: $violet;
   border-radius: 1421px;
   background: rgba(204, 236, 231, 0.5);
 
@@ -37,7 +39,7 @@
 
   min-width: 335px;
   min-height: 384px;
-  background: #202024;
+  background: $black1;
 
   border-radius: 18px;
 }
@@ -51,7 +53,7 @@
   border: none;
   cursor: pointer;
   transition: fill 0.3s ease;
-  fill: #ffffff;
+  fill: $white;
 }
 .register-form {
   display: flex;
@@ -74,12 +76,12 @@
   font-size: 16px;
   font-weight: 700;
   background-color: transparent;
-  color: #f6f6f6;
-  border: 2px solid #f6f6f6;
+  color: $white1;
+  border: 2px solid $white1;
   border-radius: 40px;
   &:focus {
-    outline-color: #f6f6f6;
-    color: #f6f6f6;
+    outline-color: $white1;
+    color: $white1;
   }
 }
 
@@ -105,7 +107,7 @@
   max-height: 50px;
   font-size: 16px;
   font-weight: 700;
-  background: #f6f6f6;
+  background: $white1;
   border-radius: 40px;
   cursor: pointer;
 }
@@ -138,7 +140,7 @@
   text-transform: uppercase;
 }
 .current-modal-btn {
-  color: #4f2ee8;
+  color: $violet;
   text-decoration-line: underline;
 }
 

@@ -1,3 +1,5 @@
+@import '../partials/variables';
+
 li {
   list-style: none;
 }
@@ -5,12 +7,11 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: 'DM Sans', sans-serif;
   font-size: 18px;
   line-height: 1.33;
   font-weight: 400;
-  color: #111111;
-  background-color: #f6f6f6;
+  color: $black;
+  background-color: $white1;
   transition: 0.5s;
 }
 

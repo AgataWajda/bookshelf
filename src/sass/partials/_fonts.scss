@@ -16,8 +16,6 @@ h2 {
   letter-spacing: 0.03em;
 }
 .font {
-  font-family: 'DM Sans';
-
   &-title {
     font-size: 16px;
     font-weight: 700;
@@ -31,6 +29,7 @@ h2 {
     font-weight: 400;
     line-height: 1.66;
     letter-spacing: -0.04em;
+    color: $grey;
   }
 
   &-describtion {
@@ -38,6 +37,14 @@ h2 {
     font-weight: 400;
     line-height: 18px;
     letter-spacing: -0.04em;
+  }
+
+  &-category {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.71;
+    letter-spacing: 0.03em;
+    color: $grey;
   }
 
   //pola login modal mają ten sam font

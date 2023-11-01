@@ -3,13 +3,38 @@
  * Główny plik dla stylów.
  * Wszystkie partials podłączamy tutaj.
  */
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.image-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  display: inline-block;
+}
+
+.white-image {
+  mix-blend-mode: lighten;
+  filter: brightness(0) invert(1);
+}
+
+.background {
+  background-color: #111111;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
 .categories-menu {
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 .categories-list {
-  color: rgba(17, 17, 17, 0.6);
+  color: #202024;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -39,12 +64,37 @@ ul {
   font-weight: 700;
 }
 
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.image-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  display: inline-block;
+}
+
+.white-image {
+  mix-blend-mode: lighten;
+  filter: brightness(0) invert(1);
+}
+
+.background {
+  background-color: #111111;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
 body.dark {
   background-color: #202024;
 }
 
 .dark .header__menu {
-  background-color: #111;
+  background-color: #111111;
   border: 2px solid #ffffff;
 }
 
@@ -68,11 +118,11 @@ body.dark {
 }
 
 .dark .title-book {
-  color: #fff;
+  color: #ffffff;
 }
 
 .dark .main-nav__shop-text {
-  color: #fff;
+  color: #ffffff;
 }
 
 .dark .simplebar-scrollbar {
@@ -94,12 +144,37 @@ body.dark {
 
 .dark .logo__text,
 .dark .main-nav__shop-icon {
-  fill: #f3f3f3;
+  fill: #f6f6f6;
 }
 
 .dark .books-card-title,
 .dark .card__heading {
-  color: #fff;
+  color: #ffffff;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.image-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  display: inline-block;
+}
+
+.white-image {
+  mix-blend-mode: lighten;
+  filter: brightness(0) invert(1);
+}
+
+.background {
+  background-color: #111111;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
 }
 
 li {
@@ -111,7 +186,6 @@ html {
 }
 
 body {
-  font-family: "DM Sans", sans-serif;
   font-size: 18px;
   line-height: 1.33;
   font-weight: 400;
@@ -166,6 +240,31 @@ body {
     width: 996px;
   }
 }
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.image-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  display: inline-block;
+}
+
+.white-image {
+  mix-blend-mode: lighten;
+  filter: brightness(0) invert(1);
+}
+
+.background {
+  background-color: #111111;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
 @media screen and (min-width: 1440px) {
   .best-sellers {
     width: 996px;
@@ -344,7 +443,7 @@ body {
 .books-btn:hover,
 .books-btn:focus {
   background-color: #4f2ee8;
-  color: #fff;
+  color: #ffffff;
 }
 
 .books-btn:focus {
@@ -414,9 +513,34 @@ body {
   margin-bottom: 80px;
 }
 
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.image-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  display: inline-block;
+}
+
+.white-image {
+  mix-blend-mode: lighten;
+  filter: brightness(0) invert(1);
+}
+
+.background {
+  background-color: #111111;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
 :root {
-  --scroll-bar-light: #e0e0e0;
-  --scroll-bar-dark: rgba(17, 17, 17, 0.6);
+  --scroll-bar-light: $white1;
+  --scroll-bar-dark: $black1;
 }
 
 .left-side-menu {
@@ -461,7 +585,7 @@ body {
 }
 
 .categories-list {
-  color: rgba(17, 17, 17, 0.6);
+  color: #202024;
   display: block;
   max-height: 258px;
 }
@@ -509,6 +633,31 @@ body {
   font-weight: 700;
 }
 
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.image-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  display: inline-block;
+}
+
+.white-image {
+  mix-blend-mode: lighten;
+  filter: brightness(0) invert(1);
+}
+
+.background {
+  background-color: #111111;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
 h1,
 h2,
 h3,
@@ -538,8 +687,6 @@ ul {
 
 .category-books-list__title {
   margin-bottom: 40px;
-  font-family: "DM Sans";
-  font-style: normal;
   font-weight: 700;
   font-size: 32px;
   line-height: 38px;
@@ -672,7 +819,6 @@ ul {
   height: 70px;
   background: #eac645;
   border-radius: 0px 0px 8px 8px;
-  font-family: "DM Sans";
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
@@ -697,18 +843,15 @@ ul {
 }
 
 .card__heading {
-  font-family: "DM Sans";
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 18px;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: #111;
+  color: #111111;
 }
 
 .card__author {
-  font-family: "DM Sans";
   font-style: italic;
   font-weight: 400;
   font-size: 12px;
@@ -738,16 +881,17 @@ ul {
   background-color: #111111;
 }
 
-.header {
+body {
   font-family: "DM Sans", sans-serif;
 }
+
 .header__menu {
   padding: 18px 20px;
   border-radius: 0px 0px 8px 8px;
-  border: 2px solid #111;
+  border: 2px solid #111111;
   position: relative;
   z-index: 999;
-  background-color: #fff;
+  background-color: #ffffff;
   margin: 0;
   display: flex;
   justify-content: space-between;
@@ -779,7 +923,7 @@ ul {
   height: 28px;
   padding: 0;
   border: none;
-  background-color: #fff;
+  background-color: #ffffff;
   cursor: pointer;
 }
 @media screen and (min-width: 768px) {
@@ -792,7 +936,7 @@ ul {
   height: 28px;
   padding: 0;
   border: none;
-  background-color: #fff;
+  background-color: #ffffff;
   cursor: pointer;
 }
 .header__is-hidden {
@@ -830,7 +974,7 @@ ul {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
+  background: linear-gradient(180deg, #4f2ee8 0%, #ffffff 100%);
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1) inset;
   transition: 0.4s;
 }
@@ -842,7 +986,7 @@ ul {
   width: 18px;
   left: 1px;
   bottom: 1px;
-  background: #ffffff, #f7f7f7;
+  background: #ffffff, #f6f6f6;
   transition: 0.4s;
 }
 
@@ -879,8 +1023,7 @@ input:checked + .slider:before {
   z-index: 99;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4f2ee8 18.03%, #fff 100%);
-  font-family: "DM Sans", sans-serif;
+  background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
 }
 .header-modal__books-img {
   width: 120%;
@@ -895,7 +1038,6 @@ input:checked + .slider:before {
   flex-direction: column;
   gap: 14px;
   margin-left: 31.7333333333%;
-  font-family: "DM Sans", sans-serif;
 }
 @media screen and (min-width: 768px) {
   .main-nav {
@@ -921,11 +1063,11 @@ input:checked + .slider:before {
 }
 .main-nav__home {
   text-decoration: none;
-  color: #fff;
+  color: #ffffff;
 }
 @media screen and (min-width: 768px) {
   .main-nav__home {
-    color: #111;
+    color: #111111;
   }
 }
 .main-nav__shop-btn {
@@ -948,24 +1090,24 @@ input:checked + .slider:before {
   text-decoration: none;
 }
 .main-nav__shop-text {
-  color: #fff;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 500;
 }
 @media screen and (min-width: 768px) {
   .main-nav__shop-text {
-    color: #111;
+    color: #111111;
     font-weight: 700;
   }
 }
 .main-nav__shop-icon {
   width: 20px;
   height: 20px;
-  fill: #fff;
+  fill: #ffffff;
 }
 @media screen and (min-width: 768px) {
   .main-nav__shop-icon {
-    fill: #111;
+    fill: #111111;
   }
 }
 .main-nav__logout {
@@ -975,13 +1117,13 @@ input:checked + .slider:before {
   align-items: center;
   gap: 4px;
   border-radius: 18px;
-  border: 2px solid #111;
-  background: #fff;
+  border: 2px solid #111111;
+  background: #ffffff;
   position: absolute;
   z-index: 99;
   bottom: 20px;
   left: 20px;
-  color: #111;
+  color: #111111;
   font-size: 14px;
   font-weight: 500;
   text-align: left;
@@ -990,7 +1132,7 @@ input:checked + .slider:before {
 }
 .main-nav__logout:hover, .main-nav__logout:focus {
   background-color: #4f2ee8;
-  color: #fff;
+  color: #ffffff;
 }
 .main-nav__logout-icon {
   height: 20px;
@@ -1003,7 +1145,6 @@ input:checked + .slider:before {
   display: flex;
   gap: 9px;
   align-items: center;
-  font-family: "DM Sans", sans-serif;
 }
 @media screen and (min-width: 768px) {
   .profile {
@@ -1018,7 +1159,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 .profile__name {
-  color: #fff;
+  color: #ffffff;
   font-size: 22px;
   font-weight: 700;
   display: flex;
@@ -1041,9 +1182,34 @@ input:checked + .slider:before {
 }
 
 .current-text {
-  color: #111;
+  color: #111111;
   font-weight: 700;
-  fill: #111;
+  fill: #111111;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.image-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  display: inline-block;
+}
+
+.white-image {
+  mix-blend-mode: lighten;
+  filter: brightness(0) invert(1);
+}
+
+.background {
+  background-color: #111111;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
 }
 
 img {
@@ -1085,8 +1251,6 @@ img {
 }
 
 .pop-up-modal {
-  font-family: "DM Sans";
-  font-style: normal;
   font-weight: 400;
   position: relative;
   top: 430px;
@@ -1095,7 +1259,7 @@ img {
   display: inline-block;
   width: 335px;
   padding: 40px 24px;
-  border: 2px solid #040404;
+  border: 2px solid #202024;
   border-radius: 18px;
   background-color: #f6f6f6;
   height: 100%;
@@ -1114,7 +1278,7 @@ img {
   background: #f6f6f6;
 }
 .close-pop-up-modal-btn:hover {
-  color: #836ceb;
+  color: #4f2ee8;
 }
 
 .image {
@@ -1271,6 +1435,10 @@ img {
   background-color: #111111;
 }
 
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
 h1 {
   font-size: 48px;
   font-weight: 700;
@@ -1285,9 +1453,6 @@ h2 {
   letter-spacing: 0.03em;
 }
 
-.font {
-  font-family: "DM Sans";
-}
 .font-title {
   font-size: 16px;
   font-weight: 700;
@@ -1300,12 +1465,20 @@ h2 {
   font-weight: 400;
   line-height: 1.66;
   letter-spacing: -0.04em;
+  color: #b4afaf;
 }
 .font-describtion {
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.04em;
+}
+.font-category {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: #b4afaf;
 }
 .font-button {
   font-size: 18px;
@@ -1358,6 +1531,10 @@ h2 {
 
 .background {
   background-color: #111111;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
 }
 
 .button-shopping {
@@ -1419,6 +1596,10 @@ h2 {
 
 .background {
   background-color: #111111;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
 }
 
 .shopping-h1-position {
@@ -1537,6 +1718,32 @@ h2 {
   top: 900px;
   left: 800px;
   gap: 10px;
+  border-radius: 15px;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.image-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  display: inline-block;
+}
+
+.white-image {
+  mix-blend-mode: lighten;
+  filter: brightness(0) invert(1);
+}
+
+.background {
+  background-color: #111111;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
 }
 
 .backdrop {

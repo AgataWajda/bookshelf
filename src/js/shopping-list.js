@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
       <li class="shopping-list-item" data-id="${book.id}">
         <img src="${book.book_image}" alt="${book.title}" class="shopping-list-item-image">
         <div class="shopping-list-item-info">
-          <h3 class="shopping-list-item-title">${book.title}</h3>
-          <p class="shopping-list-item-category">${book.list_name}</p>
-          <p class="shopping-list-item-description">${book.description}</p>
-          <p class="shopping-list-item-author">${book.author}</p>
+          <h3 class="shopping-list-item-title font-title">${book.title}</h3>
+          <p class="shopping-list-item-category font-category">${book.list_name}</p>
+          <p class="shopping-list-item-description font-description">${book.description}</p>
+          <p class="shopping-list-item-author font-author">${book.author}</p>
           <ul class="buy-links">
       <li class="buy-links-item link-position">
             <a href="${book.marketAmazon}" target="_blank"><img src="${amazonIcon}" alt="Amazon"></a> </li>

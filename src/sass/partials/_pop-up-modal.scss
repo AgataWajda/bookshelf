@@ -1,3 +1,5 @@
+@import '../partials/variables';
+
 img {
   display: block;
   max-width: 100%;
@@ -36,8 +38,6 @@ img {
   }
 }
 .pop-up-modal {
-  font-family: 'DM Sans';
-  font-style: normal;
   font-weight: 400;
   position: relative;
   top: 430px;
@@ -46,9 +46,9 @@ img {
   display: inline-block;
   width: 335px;
   padding: 40px 24px;
-  border: 2px solid #040404;
+  border: 2px solid $black1;
   border-radius: 18px;
-  background-color: #f6f6f6;
+  background-color: $white1;
   height: 100%;
 }
 
@@ -62,9 +62,9 @@ img {
   border: none;
   cursor: pointer;
   transition: fill 0.3s ease;
-  background: #f6f6f6;
+  background: $white1;
   &:hover {
-    color: #836ceb;
+    color: $violet;
   }
 }
 .image {
@@ -82,7 +82,7 @@ img {
   font-style: italic;
   font-size: 12px;
   line-height: 14px;
-  color: #b4afaf;
+  color: $grey;
   margin-top: 4px;
 }
 .description {
@@ -110,7 +110,7 @@ img {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  border: 2px solid #4f2ee8;
+  border: 2px solid $violet;
   border-radius: 40px;
   font-weight: 700;
   font-size: 13px;
@@ -120,8 +120,8 @@ img {
   bottom: 50px;
   transition: background, color 0.3s ease;
   &:hover {
-    background: #4f2ee8;
-    color: #ffffff;
+    background: $violet;
+    color: $white;
     cursor: pointer;
   }
 }

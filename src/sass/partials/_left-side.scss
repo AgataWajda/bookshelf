@@ -1,6 +1,7 @@
+@import '../partials/variables';
 :root {
-  --scroll-bar-light: #e0e0e0;
-  --scroll-bar-dark: rgba(17, 17, 17, 0.6);
+  --scroll-bar-light: $white1;
+  --scroll-bar-dark: $black1;
 }
 
 .left-side-menu {
@@ -40,7 +41,7 @@
   }
 }
 .categories-list {
-  color: rgba(17, 17, 17, 0.6);
+  color: $black1;
   display: block;
 
   max-height: calc(18px * 6 + 30px * 5);
@@ -80,7 +81,7 @@
 .categories-list-item:focus,
 .categories-list-item[selected='true'] {
   cursor: pointer;
-  color: #4f2ee8;
+  color: $violet;
 }
 
 .categories-list-item[selected='true'] {

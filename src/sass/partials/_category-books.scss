@@ -1,3 +1,5 @@
+@import '../partials/variables';
+
 h1,
 h2,
 h3,
@@ -28,8 +30,6 @@ ul {
 
 .category-books-list__title {
   margin-bottom: 40px;
-  font-family: 'DM Sans';
-  font-style: normal;
   font-weight: 700;
   font-size: 32px;
   line-height: 38px;
@@ -46,7 +46,7 @@ ul {
 }
 
 .paintedWord {
-  color: #4f2ee8;
+  color: $violet;
 }
 
 .category-books-list__list {
@@ -167,15 +167,14 @@ ul {
   justify-content: center;
   width: 100%;
   height: 70px;
-  background: #eac645;
+  background: $yellow;
   border-radius: 0px 0px 8px 8px;
-  font-family: 'DM Sans';
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: #111111;
+  color: $black;
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
@@ -194,22 +193,19 @@ ul {
 }
 
 .card__heading {
-  font-family: 'DM Sans';
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 18px;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: #111;
+  color: $black;
 }
 
 .card__author {
-  font-family: 'DM Sans';
   font-style: italic;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: -0.04em;
-  color: #b4afaf;
+  color: $grey;
 }

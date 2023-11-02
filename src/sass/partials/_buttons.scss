@@ -11,12 +11,8 @@
   background-color: $violet;
 }
 
-.previous-page-button,
 .page-input,
-.go-to-page-button,
-.next-page-button,
-.last-page-button,
-.first-page-button {
+.go-to-page-button {
   border-radius: 5px;
   background-color: $white;
 }
@@ -24,15 +20,69 @@
 .page-input {
   width: 50px;
 }
+
+.first-page-button,
 .previous-page-button,
-.page-input,
-.go-to-page-button,
-.next-page-button,
 .last-page-button,
-.first-page-button:hover {
+.next-page-button {
+  background-color: $black;
+  width: 44px;
+  height: 44px;
+  border-radius: 30px;
+}
+.nav-first-icon1 {
+  transform: translate(4px, 8px);
+  fill: $white;
+  width: 20px;
+  height: 20px;
+}
+.nav-first-icon2 {
+  transform: translate(-4px, -17px);
+  fill: $white;
+  width: 20px;
+  height: 20px;
+}
+
+.nav-prev {
+  fill: $white;
+  width: 20px;
+  height: 20px;
+}
+
+.nav-next {
+  transform: rotate(0.5turn);
+  fill: $white;
+  width: 20px;
+  height: 20px;
+}
+.nav-last-icon1 {
+  transform: translate(4px, 8px) rotate(0.5turn);
+  fill: $white;
+  width: 20px;
+  height: 20px;
+}
+.nav-last-icon2 {
+  transform: translate(-4px, -17px) rotate(0.5turn);
+  fill: $white;
+  width: 20px;
+  height: 20px;
+}
+.page-button,
+.page-input {
+  background-color: $white;
+  width: 44px;
+  height: 44px;
+  border-radius: 30px;
   &:hover,
   &:focus {
-    background-color: $violet;
+    background-color: lighten($white, 20%);
+  }
+  &.active {
+    background-color: $black;
     color: $white;
   }
+}
+
+.page-input {
+  padding-left: 15px;
 }

@@ -82,6 +82,7 @@ body.dark {
 }
 
 .dark .books-card-title,
-.dark .card__heading {
+.dark .card__heading,
+.dark .main-nav__home-text {
   color: #ffffff;
 }/*# sourceMappingURL=dark-theme.css.map */

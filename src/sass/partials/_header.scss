@@ -193,9 +193,15 @@ input:checked + .slider:before {
     border: none;
   }
 
-  &__home {
+  &__home-index {
+    text-decoration: none;
+    color: $black;
+  }
+
+  &__home-sl {
     text-decoration: none;
     color: $white;
+    text-decoration: none;
 
     @include tablet {
       color: $black;
@@ -222,7 +228,17 @@ input:checked + .slider:before {
     text-decoration: none;
   }
 
-  &__shop-text {
+  &__shop-text-sl {
+    color: $black;
+    font-size: 14px;
+    font-weight: 500;
+
+    @include tablet {
+      font-weight: 700;
+    }
+  }
+
+  &__shop-text-index {
     color: $white;
     font-size: 14px;
     font-weight: 500;
@@ -240,6 +256,13 @@ input:checked + .slider:before {
     @include tablet {
       fill: $black;
     }
+  }
+
+  &__shop-icon-sl {
+    width: 20px;
+    height: 20px;
+
+    fill: $black;
   }
 
   &__logout {
@@ -321,4 +344,9 @@ input:checked + .slider:before {
   color: $black;
   font-weight: 700;
   fill: $black;
+}
+
+.icon-close,
+.icon-open {
+  stroke: $black;
 }

@@ -13,6 +13,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevPageButton = document.getElementById('prev-page-button');
   const currentPageButton = document.getElementById('current-page-button');
   const nextPageButton = document.getElementById('next-page-button');
+  const firstPageButton = document.querySelector('.first-page-button');
+  const lastPageButton = document.querySelector('.last-page-button');
+  const previousPageButton = document.querySelector('.previous-page-button');
+  const nextPageButton2 = document.querySelector('.next-page-button2');
+
+  function updateNavigationButtonState() {
+    previousPageButton.disabled = currentPage === 1;
+    nextPageButton.disabled = currentPage === totalPages;
+    firstPageButton.disabled = currentPage === 1;
+    lastPageButton.disabled = currentPage === totalPages;
+  }
+
+  firstPageButton.addEventListener('click', () => goToPage(1));
+  lastPageButton.addEventListener('click', () => goToPage(totalPages));
+  previousPageButton.addEventListener('click', () => goToPage(currentPage - 1));
+  nextPageButton.addEventListener('click', () => goToPage(currentPage + 1));
+  nextPageButton2.addEventListener('click', () => goToPage(currentPage + 1));
 
   // Retrieve stored books or initialize an empty array if none exist
   let storedBooks = JSON.parse(localStorage.getItem('storage-book-data')) || [];
@@ -30,20 +47,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Remove active class from all buttons
     document.querySelectorAll('.page-button').forEach(button => {
       button.classList.remove('active');
+      button.style.background = ''; // Ensure the background is cleared for non-active buttons
     });
 
     // Add active class to the current page button
-    currentPageButton.classList.add('active');
+    const activeButton = document.querySelector(`.page-button[data-page="${currentPage}"]`);
+    if (activeButton) {
+      activeButton.classList.add('active');
+      activeButton.style.background = 'black'; // Set the background to black for the active button
+    }
   }
 
-  // Update the page buttons to reflect the correct page numbers
+  // Update the page buttons to reflect the correct page numbers and assign data attributes
   function updatePageButtons() {
     const pageNumbers =
       currentPage === 1 ? [1, 2, 3] : [currentPage - 1, currentPage, currentPage + 1];
 
     prevPageButton.textContent = pageNumbers[0];
+    prevPageButton.setAttribute('data-page', pageNumbers[0]);
     currentPageButton.textContent = pageNumbers[1];
+    currentPageButton.setAttribute('data-page', pageNumbers[1]);
     nextPageButton.textContent = pageNumbers[2];
+    nextPageButton.setAttribute('data-page', pageNumbers[2]);
 
     prevPageButton.disabled = currentPage === 1;
     nextPageButton.disabled = currentPage === totalPages;
@@ -57,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentPage = page;
     renderShoppingList();
     updatePageButtons();
+    updateNavigationButtonState();
   }
 
   // Event listener for the page input to handle the "Enter" keypress
@@ -69,15 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Event listeners for pagination
-  document.querySelector('.first-page-button').addEventListener('click', () => goToPage(1));
-  document
-    .querySelector('.previous-page-button')
-    .addEventListener('click', () => goToPage(currentPage - 1));
-  document
-    .querySelector('.next-page-button')
-    .addEventListener('click', () => goToPage(currentPage + 1));
-  document.querySelector('.last-page-button').addEventListener('click', () => goToPage(totalPages));
+  // Event listeners for pagination buttons
+  document.querySelectorAll('.page-button').forEach(button => {
+    button.addEventListener('click', event => {
+      const page = Number(event.target.getAttribute('data-page'));
+      if (page) {
+        goToPage(page);
+      }
+    });
+  });
 
   // Hide the empty list placeholder if there are items
   if (storedBooks.length > 0) {
@@ -139,9 +165,9 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Element .shopping-list-container not found!');
     }
   }
-
   // Initial render of the shopping list and navigation elements
   renderShoppingList();
   updateNavbarVisibility();
   updatePageButtons();
+  updateNavigationButtonState();
 });

@@ -106,6 +106,14 @@ body.dark,
   border: 2px solid #ffffff;
 }
 
+.dark .amazonWhite {
+  display: block;
+}
+
+.dark .amazon {
+  display: none;
+}
+
 .dark .categories-menu {
   scrollbar-color: rgba(17, 17, 17, 0.6) rgba(17, 17, 17, 0.6);
 }
@@ -156,6 +164,10 @@ body.dark,
 .dark .logo__text,
 .dark .main-nav__shop-icon {
   fill: #f6f6f6;
+}
+
+.dark .buy-links {
+  fill: #ffffff;
 }
 
 .dark .books-card-title,
@@ -1412,6 +1424,14 @@ img {
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
 }
 
+.amazon {
+  display: block;
+}
+
+.amazonWhite {
+  display: none;
+}
+
 .buttons {
   position: absolute;
   left: 50%;
@@ -1646,7 +1666,7 @@ body {
 .first-page-button,
 .previous-page-button,
 .last-page-button,
-.next-page-button {
+.next-page-button2 {
   background-color: #111111;
   width: 44px;
   height: 44px;

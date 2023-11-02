@@ -106,6 +106,12 @@ img {
 .buy-links-item:hover {
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
 }
+.amazon {
+  display: block;
+}
+.amazonWhite {
+  display: none;
+}
 .buttons {
   position: absolute;
   left: 50%;

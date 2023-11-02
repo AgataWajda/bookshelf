@@ -16,6 +16,12 @@ body.dark,
   border: 2px solid $white;
 }
 
+.dark .amazonWhite {
+  display: block;
+}
+.dark .amazon {
+  display: none;
+}
 .dark .categories-menu {
   scrollbar-color: rgba(17, 17, 17, 0.6) rgba(17, 17, 17, 0.6);
 }
@@ -68,7 +74,9 @@ body.dark,
 .dark .main-nav__shop-icon {
   fill: $white1;
 }
-
+.dark .buy-links {
+  fill: $white;
+}
 .dark .books-card-title,
 .dark .card__heading,
 .dark .main-nav__home-sl,

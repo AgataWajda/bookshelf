@@ -3,6 +3,7 @@ import amazonIcon from '../images/pop-up-modal/iconAmazon@x1.png';
 import appleBooksIcon from '../images/pop-up-modal/iconAppleBooks@x1.png';
 import amazonIcon from '../images/pop-up-modal/iconAmazon@x2.png';
 import appleBooksIcon from '../images/pop-up-modal/iconAppleBooks@x2.png';
+import amazonIconWhite from '../images/pop-up-modal/amazonIconWhite@x1.png';
 
 const bookshelf = new Bookshelf();
 const LOCALSTORAGE_KEY = 'storage-book-data';
@@ -62,7 +63,8 @@ function createMarkup(data) {
       <ul class="buy-links">
       <li class="buy-links-item">
       <a href="${data.marketAmazon}" target="_blank">
-      <img src="${amazonIcon}" alt="Amazon">
+      <img src="${amazonIcon}" alt="Amazon" class="amazon">
+      <img src="${amazonIconWhite}" alt="Amazon" class="amazonWhite">
   </a>
     </li>
     <li class="buy-links-item">

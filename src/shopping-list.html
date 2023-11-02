@@ -50,13 +50,51 @@
 
     <!-- Add this at the end of your shopping-list.html file -->
     <div class="navbar is-hidden">
-      <button class="first-page-button">First</button>
-      <button class="previous-page-button">Previous</button>
-      <span class="page-indicator">Page 1 of X</span>
-      <input type="number" class="page-input" />
-      <button class="go-to-page-button">Go</button>
-      <button class="next-page-button">Next</button>
-      <button class="last-page-button">Last</button>
+      <button class="first-page-button">
+        <div>
+          <svg class="nav-first-icon1">
+            <use href="./images/icons.svg#icon-arrow-small-left"></use>
+          </svg>
+          <svg class="nav-first-icon2">
+            <use href="./images/icons.svg#icon-arrow-small-left"></use>
+          </svg>
+        </div>
+      </button>
+
+      <button class="previous-page-button">
+        <div>
+          <svg class="nav-prev">
+            <use href="./images/icons.svg#icon-arrow-small-left"></use>
+          </svg>
+        </div>
+      </button>
+
+      <div class="page-buttons">
+        <button class="page-button" id="prev-page-button">1</button>
+        <button class="page-button" id="current-page-button">2</button>
+        <button class="page-button" id="next-page-button">3</button>
+      </div>
+
+      <input type="number" class="page-input" placeholder="…" />
+
+      <button class="next-page-button">
+        <div>
+          <svg class="nav-next">
+            <use href="./images/icons.svg#icon-arrow-small-left"></use>
+          </svg>
+        </div>
+      </button>
+
+      <button class="last-page-button">
+        <div>
+          <svg class="nav-last-icon1">
+            <use href="./images/icons.svg#icon-arrow-small-left"></use>
+          </svg>
+          <svg class="nav-last-icon2">
+            <use href="./images/icons.svg#icon-arrow-small-left"></use>
+          </svg>
+        </div>
+      </button>
     </div>
 
     <script src="./js/header-modal.js" type="module"></script>

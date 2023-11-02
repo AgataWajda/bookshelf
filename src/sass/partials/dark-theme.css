@@ -23,12 +23,20 @@ body {
   font-family: "DM Sans", sans-serif;
 }
 
-body.dark {
+body.dark,
+.dark .close-pop-up-modal-btn,
+.dark .delete-book-button,
+.dark .add-book-button {
   background-color: #202024;
 }
 
 .dark .header__menu {
   background-color: #111111;
+  border: 2px solid #ffffff;
+}
+
+.dark .pop-up-modal {
+  background-color: #202024;
   border: 2px solid #ffffff;
 }
 
@@ -40,7 +48,9 @@ body.dark {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.dark .books-descr {
+.dark .books-descr,
+.dark .delete-book-button,
+.dark .add-book-button {
   color: #ffffff;
 }
 
@@ -51,7 +61,8 @@ body.dark {
   color: #eac645;
 }
 
-.dark .title-book {
+.dark .title-book,
+.dark .description {
   color: #ffffff;
 }
 
@@ -83,6 +94,54 @@ body.dark {
 
 .dark .books-card-title,
 .dark .card__heading,
-.dark .main-nav__home-text {
+.dark .main-nav__home-sl,
+.dark .title {
+  color: #ffffff;
+}
+
+.dark .main-nav__shop-text-index,
+.dark .main-nav__shop-icon-sl {
+  color: #ffffff;
+}
+
+.dark .main-nav__shop-text-sl {
+  color: #111111;
+  font-size: 14px;
+  font-weight: 500;
+}
+@media screen and (min-width: 768px) {
+  .dark .main-nav__shop-text-sl {
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dark .main-nav__shop-icon-sl {
+    fill: #111111;
+  }
+}
+
+.dark .icon-close,
+.dark .icon-open {
+  stroke: #ffffff;
+}
+
+.dark .header__button-close,
+.dark .header__button-open {
+  background-color: #111111;
+}
+
+.dark .storage-comment {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dark .shopping-tittle {
+  color: #ffffff;
+}
+
+.dark .shopping-list-item {
+  background-color: #111111;
+}
+.dark .shopping-list-item-title, .dark .shopping-list-item-description {
   color: #ffffff;
 }/*# sourceMappingURL=dark-theme.css.map */

@@ -5,12 +5,12 @@
       <svg class="logo__text"><use href="./images/icons.svg#icon-bookshelf"></use></svg>
       <nav class="main-nav mobile-hidden">
         <button type="button" class="main-nav__home-btn">
-          <a href="./index.html" class="main-nav__home">HOME</a>
+          <a href="./index.html" class="main-nav__home-sl">HOME</a>
         </button>
         <button type="button" class="main-nav__shop-btn current">
           <a href="./shopping-list.html" class="main-nav__shop-link">
-            <span class="main-nav__shop-text">SHOPPING LIST</span>
-            <svg class="main-nav__shop-icon">
+            <span class="main-nav__shop-text-sl">SHOPPING LIST</span>
+            <svg class="main-nav__shop-icon-sl">
               <use href="./images/icons.svg#icon-bag"></use>
             </svg>
           </a>
@@ -28,32 +28,23 @@
           width="28"
           height="28"
           viewBox="0 0 28 28"
-          fill="none"
+          class="icon-open"
         >
           <path
             d="M19.8333 11.6667H3.5"
-            stroke="#111111"
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
-          <path
-            d="M24.5 7H3.5"
-            stroke="#111111"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+          <path d="M24.5 7H3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           <path
             d="M24.5 16.3333H3.5"
-            stroke="#111111"
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M19.8333 21H3.5"
-            stroke="#111111"
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -61,7 +52,9 @@
         </svg>
       </button>
       <button type="button" class="header__button-close header__is-hidden">
-        <svg width="28px" height="28px"><use href="./images/icons.svg#icon-close"></use></svg>
+        <svg width="28px" height="28px" class="icon-close">
+          <use href="./images/icons.svg#icon-close"></use>
+        </svg>
       </button>
       <figure class="profile mobile-hidden">
         <img
@@ -92,12 +85,12 @@
     </figure>
     <nav class="main-nav">
       <button type="button" class="main-nav__home-btn">
-        <a href="./index.html" class="main-nav__home">HOME</a>
+        <a href="./index.html" class="main-nav__home-sl">HOME</a>
       </button>
       <button type="button" class="main-nav__shop-btn current">
         <a href="./shopping-list.html" class="main-nav__shop-link">
-          <span class="main-nav__shop-text current-text">SHOPPING LIST</span>
-          <svg class="main-nav__shop-icon current-text">
+          <span class="main-nav__shop-text-sl">SHOPPING LIST</span>
+          <svg class="main-nav__shop-icon-sl">
             <use href="./images/icons.svg#icon-bag"></use>
           </svg>
         </a>

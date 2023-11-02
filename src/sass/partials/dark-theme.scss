@@ -1,10 +1,18 @@
 @import '../partials/variables';
 
-body.dark {
+body.dark,
+.dark .close-pop-up-modal-btn,
+.dark .delete-book-button,
+.dark .add-book-button {
   background-color: $black1;
 }
 .dark .header__menu {
   background-color: $black;
+  border: 2px solid $white;
+}
+
+.dark .pop-up-modal {
+  background-color: $black1;
   border: 2px solid $white;
 }
 
@@ -16,7 +24,9 @@ body.dark {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.dark .books-descr {
+.dark .books-descr,
+.dark .delete-book-button,
+.dark .add-book-button {
   color: $white;
 }
 
@@ -27,7 +37,8 @@ body.dark {
   color: $yellow;
 }
 
-.dark .title-book {
+.dark .title-book,
+.dark .description {
   color: $white;
 }
 
@@ -59,6 +70,56 @@ body.dark {
 }
 
 .dark .books-card-title,
-.dark .card__heading {
+.dark .card__heading,
+.dark .main-nav__home-sl,
+.dark .title {
   color: $white;
+}
+
+.dark .main-nav__shop-text-index,
+.dark .main-nav__shop-icon-sl {
+  color: $white;
+}
+
+.dark .main-nav__shop-text-sl {
+  color: $black;
+  font-size: 14px;
+  font-weight: 500;
+
+  @media screen and (min-width: 768px) {
+    font-weight: 700;
+  }
+}
+
+.dark .main-nav__shop-icon-sl {
+  @media screen and (min-width: 768px) {
+    fill: $black;
+  }
+}
+
+.dark .icon-close,
+.dark .icon-open {
+  stroke: $white;
+}
+
+.dark .header__button-close,
+.dark .header__button-open {
+  background-color: $black;
+}
+
+.dark .storage-comment {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dark .shopping-tittle {
+  color: $white;
+}
+
+.dark .shopping-list-item {
+  background-color: $black;
+
+  &-title,
+  &-description {
+    color: $white;
+  }
 }

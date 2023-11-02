@@ -14,7 +14,9 @@ async function renderCategoriesMenu() {
       return [];
     }
 
-    const categoriesMarkup = resultJson
+    const sortedCategories = resultJson.sort((a, b) => a.list_name.localeCompare(b.list_name));
+
+    const categoriesMarkup = sortedCategories
       .map(
         item => `
       <li class="categories-list-item">${item.list_name}</li>
@@ -24,7 +26,7 @@ async function renderCategoriesMenu() {
 
     categoriesListEl.innerHTML = `<li class="categories-list-item" selected="true">All categories</li>${categoriesMarkup}`;
 
-    console.log('Categories loaded successfully.'); // Add this console.log() for verification
+    console.log('Categories loaded successfully.');
     return resultJson;
   } catch (error) {
     categoriesListEl.innerHTML = `Error: ${error.message}`;

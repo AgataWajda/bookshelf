@@ -49,11 +49,11 @@ function onCategoryClick(e) {
     return;
   }
 
-  const query = value.split(' ').join('%20');
-  const categoryTitle = `<span class="paintedWord">${value}</span>`;
+  const words = value.split(' ');
+  const lastWord = words.pop();
+  const categoryTitle = `${words.join(' ')} <span class="paintedWord">${lastWord}</span>`;
 
-  mainTitleCategory.innerHTML = '';
-  mainTitleCategory.insertAdjacentHTML('beforeend', categoryTitle);
-  getCategory(query);
+  mainTitleCategory.innerHTML = categoryTitle;
+  getCategory(value);
   topBooks.style.display = 'none';
 }

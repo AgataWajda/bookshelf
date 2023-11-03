@@ -23,31 +23,33 @@
       html,
       body {
         max-width: 100%;
-        overflow-x: hidden;
-        overflow-y: hidden;
+        height: 100vh;
       }
     </style>
     <include src="./partials/header-shopping.html"></include>
 
-    <div class="container body-wrapper">
+    <div class="shopping-wrapper">
       <aside class="left-side-shopping">
         <include src="./partials/charities.html"></include>
       </aside>
-    </div>
-    <div class="shopping-h1-position">
-      <h1 class="shopping-tittle">Shopping <span class="shopping-tittle--violet">List</span></h1>
-    </div>
-    <div class="empty">
-      <p class="font-shopping-list">
-        This page is empty, add some books and <br />proceed to order.
-      </p>
-      <div class="empty-png"></div>
-    </div>
+      <div>
+        <div class="shopping-h1-position">
+          <h1 class="shopping-tittle">
+            Shopping <span class="shopping-tittle--violet">List</span>
+          </h1>
+        </div>
+        <div class="empty">
+          <p class="font-shopping-list">
+            This page is empty, add some books and <br />proceed to order.
+          </p>
+          <div class="empty-png"></div>
+        </div>
 
-    <div class="basket">
-      <ul class="shopping-list-container"></ul>
+        <div class="basket">
+          <ul class="shopping-list-container"></ul>
+        </div>
+      </div>
     </div>
-
     <!-- Add this at the end of your shopping-list.html file -->
     <div class="navbar is-hidden">
       <button class="first-page-button">

@@ -1,97 +1,146 @@
-.shopping-h1-position {
-  position: relative;
-  top: -570px;
-  left: 33%;
+.left-side-shopping .charities {
+  display: none;
+
+  @media screen and (min-width: 1100px) {
+    display: block;
+    margin-top: 112px;
+  }
 }
 
-.empty {
-  position: relative;
-  top: -300px;
-  left: 50%;
+.shopping-wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 349px;
-  text-align: center;
 }
 
-.empty-png {
-  background-image: url('../images/shopping-list/empty@x1.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 322px;
-  height: 241px;
+.left-side-shopping {
+  display: flex;
+  margin-left: 10px;
+}
+
+.shopping-tittle {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: -1.28px;
+  margin-left: 20px;
+  margin-top: 40px;
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+    margin-left: 32px;
+  }
+}
+
+.shopping-tittle--violet {
+  color: $violet;
 }
 
 .basket {
-  position: relative;
-  top: -550px;
-  left: 33%;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 32px;
+    margin-left: 32px;
+  }
 }
 
 .shopping-list-container {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .shopping-list-item {
   display: flex;
-  align-items: center;
+  align-items: top;
   position: relative;
   border: solid 2px $violet;
-  max-width: 996px;
-  height: 213px;
+
+  height: 170px;
   border-radius: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    height: 213px;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 768px) {
+  }
 }
 
 .shopping-list-item-image {
-  width: 116px;
-  height: 165px;
+  width: 100px;
+  height: 142px;
   object-fit: cover;
-  margin: 24px 24px 24px 24px;
+  margin: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 116px;
+    height: 165px;
+    margin: 24px 24px 24px 24px;
+  }
 }
 
-/*.shopping-list-item-info {
-  // add your styles here
-}*/
+.shopping-list-item-title {
+  padding-top: 14px;
 
-.shopping-list-item-title,
-.shopping-list-item-author,
-.shopping-list-item-category,
-.shopping-list-item-description {
-  width: 810px;
-  min-height: 2px;
-  margin: 0;
+  @media screen and (min-width: 768px) {
+    padding-top: 0px;
+  }
+}
+
+.shopping-list-item-category {
+  font-size: 12px;
+  line-height: normal;
+  padding-top: 4px;
 }
 
 .shopping-list-item-description {
   font-size: 14px;
+  height: 64px;
+  overflow: hidden;
+  padding-top: 6px;
+
+  @media screen and (min-width: 1100px) {
+    padding-right: 32px;
+  }
 }
 
 .shopping-list-item-author {
-  position: absolute;
-  bottom: 14px;
+  padding-top: 18px;
+}
 
-  @media screen and (min-width: 768px) {
-    bottom: 24px;
-  }
+.shopping-list-item-info .buy-links {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
 
 .is-hidden {
   display: none !important;
 }
 
+.buy-links-item img {
+  @media screen and (max-width: 768px) {
+    height: 16px;
+  }
+}
+
 .icon-trash {
-  position: relative;
-  top: -75px;
-  left: -2%;
+  position: absolute;
+  right: 7px;
+  top: 7px;
   width: 20px;
   height: 20px;
   fill: $white;
+
+  @media screen and (min-width: 768px) {
+    top: 14px;
+    right: 14px;
+  }
 }
 .icon-background {
   display: flex;
@@ -101,11 +150,6 @@
   min-height: 30px;
   background-color: $violet;
   border-radius: 16px;
-}
-
-.link-position {
-  position: relative;
-  left: 600%;
 }
 
 .navbar {
@@ -123,13 +167,45 @@
 }
 
 .navbar {
-  position: absolute;
-  top: 900px;
-  left: 800px;
-  gap: 10px;
   border-radius: 15px;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  bottom: 0px;
+  padding-top: 10px;
 }
 
-.shopping-tittle--violet {
-  color: $violet;
+.page-button {
+  width: 40px;
+  height: 42px;
+}
+
+.empty {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  top: 260px;
+  text-align: center;
+  left: 0;
+
+  @media screen and (min-width: 110px) {
+    left: 180px;
+  }
+}
+
+.empty-png {
+  background-image: url('../images/shopping-list/empty@x1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 265px;
+  height: 198px;
+  @media screen and (min-width: 768px) {
+    width: 322px;
+    height: 241px;
+  }
 }

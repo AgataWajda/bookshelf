@@ -17,7 +17,7 @@ function toggleDarkMode() {
   updateTheme();
 }
 
-switchElement.addEventListener('click', event => {
+switchElement.addEventListener('click', (event) => {
   event.preventDefault();
   toggleDarkMode();
 });

@@ -1,12 +1,11 @@
-import { Bookshelf } from './bookshelf-api';
 import './categories-menu';
 import './best-sellers-books';
 import './category-books-list';
 import './charities';
 import './pop-up-modal';
+import { fetchByCategory, fetchTopBooks, fetchBooksCategoryList, fetchById } from './bookshelf-api';
 
-const my_Bookshelf = new Bookshelf();
-my_Bookshelf.fetchByCategory('Business Books').then(data => {
+fetchByCategory('Business Books').then(data => {
   const books = data.map(item => {
     const book = {
       _id: item._id,
@@ -26,7 +25,7 @@ my_Bookshelf.fetchByCategory('Business Books').then(data => {
   return books;
 });
 
-const bookslist = my_Bookshelf.fetchByCategory('Audio Nonfiction').then(data => {
+fetchByCategory('Audio Nonfiction').then(data => {
   const books = data.map(item => {
     const book = {
       _id: item._id,
@@ -46,12 +45,12 @@ const bookslist = my_Bookshelf.fetchByCategory('Audio Nonfiction').then(data => 
   return books;
 });
 
-my_Bookshelf.fetchBooksCategoryList().then(data => {
+fetchBooksCategoryList().then(data => {
   const list = data.map(element => element.list_name);
   console.log('Category List: ', list);
 });
 
-my_Bookshelf.fetchById('643282b1e85766588626a0b6').then(data => {
+fetchById('643282b1e85766588626a0b6').then(data => {
   const book = {
     _id: data._id,
     title: data.title,
@@ -68,7 +67,6 @@ my_Bookshelf.fetchById('643282b1e85766588626a0b6').then(data => {
   return book;
 });
 
-my_Bookshelf.fetchTopBooks().then(data => {
-  // const list = data.map((element) => element.list_name);
+fetchTopBooks().then(data => {
   console.log('Top List: ', data);
 });

@@ -2,7 +2,7 @@
  * Główny plik dla stylów.
  * Wszystkie partials podłączamy tutaj.
  */
-
+@import './partials/loader';
 @import './partials/categories-menu';
 @import './partials/dark-theme.scss';
 @import './partials/main-page';

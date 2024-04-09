@@ -21,6 +21,7 @@
 
 body {
   font-family: "DM Sans", sans-serif;
+  height: auto;
 }
 
 body.dark,
@@ -156,4 +157,8 @@ body.dark,
 }
 .dark .shopping-list-item-title, .dark .shopping-list-item-description {
   color: #ffffff;
+}
+
+.dark .navbar {
+  background-color: #202024;
 }/*# sourceMappingURL=dark-theme.css.map */

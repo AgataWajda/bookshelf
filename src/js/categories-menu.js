@@ -1,13 +1,33 @@
-import { Bookshelf } from './bookshelf-api.js';
+import { fetchByCategory, fetchBooksCategoryList } from './bookshelf-api';
 
-const bookshelfApi = new Bookshelf();
 const categoriesListEl = document.querySelector('.categories-list');
+
+async function onCategoryClick(e) {
+  if (e.target.nodeName !== 'LI') {
+    return;
+  }
+
+  const prevSelected = document.querySelector('.categories-list-item[selected="true"]');
+  if (prevSelected) {
+    prevSelected.removeAttribute('selected');
+  }
+
+  e.target.setAttribute('selected', 'true');
+
+  const selectedCategory = e.target.textContent;
+  try {
+    await fetchByCategory(selectedCategory);
+    console.log('Selected category:', selectedCategory);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 categoriesListEl.addEventListener('click', onCategoryClick);
 
 async function renderCategoriesMenu() {
   try {
-    const resultJson = await bookshelfApi.fetchBooksCategoryList();
+    const resultJson = await fetchBooksCategoryList();
 
     if (resultJson.length < 1) {
       categoriesListEl.innerHTML = "Sorry, we didn't find anything";
@@ -18,7 +38,7 @@ async function renderCategoriesMenu() {
 
     const categoriesMarkup = sortedCategories
       .map(
-        item => `
+        (item) => `
       <li class="categories-list-item">${item.list_name}</li>
     `,
       )
@@ -35,25 +55,5 @@ async function renderCategoriesMenu() {
   }
 }
 
-async function onCategoryClick(e) {
-  if (e.target.nodeName !== 'LI') {
-    return;
-  }
-
-  const prevSelected = document.querySelector('.categories-list-item[selected="true"]');
-  if (prevSelected) {
-    prevSelected.removeAttribute('selected');
-  }
-
-  e.target.setAttribute('selected', 'true');
-
-  const selectedCategory = e.target.textContent;
-  try {
-    const books = await bookshelfApi.fetchByCategory(selectedCategory);
-    console.log('Selected category:', selectedCategory);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-export let categoriesMenu = renderCategoriesMenu();
+const categoriesMenu = renderCategoriesMenu();
+export default categoriesMenu;

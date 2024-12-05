@@ -21,7 +21,6 @@ fetchByCategory('Business Books').then(data => {
     };
     return book;
   });
-  console.log('Business Books: ', books);
   return books;
 });
 
@@ -41,13 +40,12 @@ fetchByCategory('Audio Nonfiction').then(data => {
     };
     return book;
   });
-  console.log('Audio Nonfiction: ', books);
+
   return books;
 });
 
 fetchBooksCategoryList().then(data => {
   const list = data.map(element => element.list_name);
-  console.log('Category List: ', list);
 });
 
 fetchById('643282b1e85766588626a0b6').then(data => {
@@ -63,10 +61,8 @@ fetchById('643282b1e85766588626a0b6').then(data => {
     marketAmazon: data.amazon_product_url,
     rank: data.rank,
   };
-  console.log('book by id: ', book);
+
   return book;
 });
 
-fetchTopBooks().then(data => {
-  console.log('Top List: ', data);
-});
+fetchTopBooks().then(data => {});

@@ -1,0 +1,164 @@
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.image-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  display: inline-block;
+}
+
+.white-image {
+  mix-blend-mode: lighten;
+  filter: brightness(0) invert(1);
+}
+
+.background {
+  background-color: #111111;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  height: auto;
+}
+
+body.dark,
+.dark .close-pop-up-modal-btn,
+.dark .delete-book-button,
+.dark .add-book-button {
+  background-color: #202024;
+}
+
+.dark .header__menu {
+  background-color: #111111;
+  border: 2px solid #ffffff;
+}
+
+.dark .pop-up-modal {
+  background-color: #202024;
+  border: 2px solid #ffffff;
+}
+
+.dark .amazonWhite {
+  display: block;
+}
+
+.dark .amazon {
+  display: none;
+}
+
+.dark .categories-menu {
+  scrollbar-color: rgba(17, 17, 17, 0.6) rgba(17, 17, 17, 0.6);
+}
+
+.dark .categories-list {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .books-descr,
+.dark .delete-book-button,
+.dark .add-book-button {
+  color: #ffffff;
+}
+
+.dark .categories-list-item:hover,
+.dark .categories-list-item:focus,
+.dark .categories-list-item[selected=true] {
+  cursor: pointer;
+  color: #eac645;
+}
+
+.dark .title-book,
+.dark .description {
+  color: #ffffff;
+}
+
+.dark .main-nav__shop-text {
+  color: #ffffff;
+}
+
+.dark .simplebar-scrollbar {
+  background-color: var(--scroll-bar-dark);
+}
+
+.dark .categories-menu {
+  scrollbar-color: var(--scroll-bar-dark) transparent;
+}
+
+.dark .categories-menu::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar-dark);
+}
+
+.dark .switch input:checked + .slider:before,
+.dark .switch.checked .slider:before {
+  transform: translateX(20px);
+}
+
+.dark .logo__text,
+.dark .main-nav__shop-icon {
+  fill: #f6f6f6;
+}
+
+.dark .buy-links {
+  fill: #ffffff;
+}
+
+.dark .books-card-title,
+.dark .card__heading,
+.dark .main-nav__home-sl,
+.dark .title {
+  color: #ffffff;
+}
+
+.dark .main-nav__shop-text-index,
+.dark .main-nav__shop-icon-sl {
+  color: #ffffff;
+}
+
+.dark .main-nav__shop-text-sl {
+  color: #111111;
+  font-size: 14px;
+  font-weight: 500;
+}
+@media screen and (min-width: 768px) {
+  .dark .main-nav__shop-text-sl {
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dark .main-nav__shop-icon-sl {
+    fill: #111111;
+  }
+}
+
+.dark .icon-close,
+.dark .icon-open {
+  stroke: #ffffff;
+}
+
+.dark .header__button-close,
+.dark .header__button-open {
+  background-color: #111111;
+}
+
+.dark .storage-comment {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dark .shopping-tittle {
+  color: #ffffff;
+}
+
+.dark .shopping-list-item {
+  background-color: #111111;
+}
+.dark .shopping-list-item-title, .dark .shopping-list-item-description {
+  color: #ffffff;
+}
+
+.dark .navbar {
+  background-color: #202024;
+}/*# sourceMappingURL=dark-theme.css.map */

@@ -35,7 +35,7 @@ async function fetchBookById(id) {
       title: data.title,
       author: data.author,
       category: data.category,
-      description: data.description,
+      description: data.description || 'Sorry the description is not added yet.',
       marketAmazon: data.buy_links[0].url,
       marketAppleBooks: data.buy_links[1].url,
       list_name: data.list_name,
@@ -58,13 +58,12 @@ function createMarkup(data) {
       <ul class="buy-links">
       <li class="buy-links-item">
       <a href="${data.marketAmazon}" target="_blank">
-      <img src="${amazonIcon}" alt="Amazon" class="amazon">
-      <img src="${amazonIconWhite}" alt="Amazon" class="amazonWhite">
+      <i class="fa-brands fa-amazon"></i>
   </a>
     </li>
     <li class="buy-links-item">
   <a href="${data.marketAppleBooks}" target="_blank">
-  <img src="${appleBooksIcon}" alt="AppleBooks">
+  <i class="fa-brands fa-apple"></i>
   </a>
 </li>
       </ul>
@@ -80,7 +79,7 @@ async function createPopUpModal(id) {
     const addedBooks = localStorage.getItem(LOCALSTORAGE_KEY);
 
     const booksArray = JSON.parse(addedBooks) || [];
-    const isInShop = booksArray.find((book) => book.id === id);
+    const isInShop = booksArray.find(book => book.id === id);
 
     if (!isInShop) {
       addBookButton.style.display = 'block';
@@ -95,14 +94,14 @@ async function createPopUpModal(id) {
   }
 }
 
-const onIdClick = (e) => {
+const onIdClick = e => {
   if (['UL', 'DIV', 'H2'].includes(e.target.nodeName)) return;
   const id = e.target.closest('li').getAttribute('data-id');
   openPopUpModal();
   createPopUpModal(id);
 };
 
-const onIdClickAll = (e) => {
+const onIdClickAll = e => {
   if (['UL', 'DIV', 'H2'].includes(e.target.nodeName)) return;
   const id = e.target.closest('a').getAttribute('data-id');
   openPopUpModal();
@@ -117,13 +116,14 @@ function onAddBook() {
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(searchBookArray));
   addBookButton.style.display = 'none';
   removeBookButton.style.display = 'block';
-  storageComment.textContent = 'Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
+  storageComment.textContent =
+    'Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
 }
 
 function onRemoveBook() {
   const bookToDelete = bookData.id;
   const bookArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
-  const indexToDelete = bookArray.findIndex((book) => book.id === bookToDelete);
+  const indexToDelete = bookArray.findIndex(book => book.id === bookToDelete);
   if (indexToDelete !== -1) {
     bookArray.splice(indexToDelete, 1);
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookArray));
@@ -155,13 +155,13 @@ closeButton.addEventListener('click', closePopUpModal);
 addBookButton.addEventListener('click', onAddBook);
 removeBookButton.addEventListener('click', onRemoveBook);
 
-backdropModal.addEventListener('click', (e) => {
+backdropModal.addEventListener('click', e => {
   if (e.currentTarget === e.target) {
     closePopUpModal();
   }
 });
 
-window.addEventListener('keydown', (e) => {
+window.addEventListener('keydown', e => {
   if (e.code === 'Escape') {
     closePopUpModal();
   }

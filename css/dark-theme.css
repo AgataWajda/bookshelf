@@ -41,6 +41,11 @@ body.dark,
   border: 2px solid #ffffff;
 }
 
+.dark .fa-amazon,
+.dark .fa-apple {
+  color: #ffffff;
+}
+
 .dark .amazonWhite {
   display: block;
 }

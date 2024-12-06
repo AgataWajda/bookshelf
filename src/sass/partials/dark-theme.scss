@@ -16,6 +16,11 @@ body.dark,
   border: 2px solid $white;
 }
 
+.dark .fa-amazon,
+.dark .fa-apple {
+  color: $white;
+}
+
 .dark .amazonWhite {
   display: block;
 }
